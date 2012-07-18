@@ -1,0 +1,122 @@
+How to Use JSONKit for iOS and the Rotten Tomatoes API
+http://www.14oranges.com/2011/08/how-to-use-jsonkit-for-ios-and-the-rotten-tomatoes-api/
+Posted on August 7, 2011 by Sylvain
+
+
+Here is a short tutorial on how to use JSONKit and since it is best to have a tutorial with a real life example, we decided to show how to use it with the Rotten Tomatoes API. Now we know that using JSONKit is rather easy but we felt a tutorial could still help a few out there so here goes.
+
+UPDATE: The article had a mistake. It used to say to use the objectWithData and objectWithString methods of JSONDecoder and should have said to use the NSData objectFromJSONData and NSString objectFromJSONString methods. Thanks to reakinator for pointing that out. The example project with source code had the correct API all along. The article has now been corrected. Apologies for the slip.
+
+Preparation
+Here are the steps you will need to do before getting started:
+
+Go to Rotten Tomatoes API site and apply for an account and a key. It is free to do so. Without a key, you won’t be able to get responses from their API.
+Download JSONKit source code from Github
+Note: We completed those steps with XCode 3.2.6 against 4.3 iOS SDK.
+
+Using JSON Kit
+Using JSONKit is super easy. What you need to do:
+
+Once you have downloaded and unzipped the zip file obtained in the preparation steps above, you will need to drop JSONKit.h and JSONKit.m in your project.
+Then import JSONKit.h” in your .m files where ever you need to parse a JSON response
+import "JSONKit.h"
+Whenever you have JSON data that you need to parse (more on how to get some later), you just use the objectFromData method like so
+
+NSData* jsonData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&err];
+
+
+NSDictionary *resultsDictionary = [jsonData objectFromJSONData];
+Alternatively, if you have your data in string form, you can use the following:
+
+NSDictionary *resultsDictionary = [jsonString objectFromJSONString];
+
+Once you have your dictionary, you can inspect it using the objectForKey method to get objects out of it.
+Note: JSONKit is free but is licensed under BSD license or Apache License Version 2. Make sure to follow their licensing terms as specified in the source code.
+
+Using Rotten Tomatoes API
+The Rotten Tomatoes API allows you to do queries so you can obtain information about movies such as “year of release, runtime, cast, posters, audience scores, critics scores, reviews, and a slew of other data. Typically the steps to get what you want are
+
+Search for the movie name
+Find the movie in the list of results and get its id
+Do specific query using the id
+Easy enough right? Let’s see the details:
+
+Search for the movie name:
+You can use the
+http://api.rottentomatoes.com/api/public/v1.0/movies.json?apikey=YOURKEY&q=MOVIENAME
+to make your search request (where YOURKEY is the API key you obtained in the preparation steps and MOVIENAME is the movie you are looking for. The response you will get should be something like:
+
+{
+total: NUMBEROFMATCHES
+-movies: [
++{ … }
++{ … }
++{ … }
+...
+]
++links: { … }
+link_template: "http://api.rottentomatoes.com/api/public/v1.0/movies.json?q={search-term}&page_limit={results-per-page}&page={page-number}"
+}
+
+Note that we “shrunk” the actual movie match details down to +{ …} for clarity. To read this, you need to understand that NUMBEROFMATCHES is the number of results that you got. For example, searching for Toy Story, will results in 7 matches (Toy Story 3, Toy Story 2, Toy Story, Toy Story & Toy Story 2 in 3D Double Feature, so on).
+Now to make that request you would do it like so:
+NSString* theURL = [NSString stringWithFormat:@"http://api.rottentomatoes.com/api/public/v1.0/movies.json?apikey=%@&q=%@",YOURKEY, SEARCHTERM];
+
+NSError* err = nil;
+
+NSURLResponse* response = nil;
+
+NSMutableURLRequest* request = [[[NSMutableURLRequest alloc] init] autorelease];
+
+NSURL*URL = [NSURL URLWithString:theURL];
+
+[request setURL:URL];
+
+[request setCachePolicy:NSURLRequestReloadIgnoringLocalCacheData];
+
+[request setTimeoutInterval:30];
+
+NSData* data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&err];
+Note: We chose to use a synchronous request here for simplicity. In reality, you likely want to use asynchronous methods so that your code isn’t stuck on waiting for Rotten Tomatoes to respond.
+
+Now when you use objectFromData method to put that into an NSDictionary, any terms that have the answers right away, will be returned as an object.
+For example:
+id: 770672122
+title: “Toy Story 3″
+year: 2010
+Doing
+[resultsDictionary objectForKey:@"id"]
+would return an NSNumber with the movie id while
+[resultsDictionary objectForKey:@"title"]
+would return an NSString with the movie name. Similarly, you would get NSNumber for the @”year” key. Now the API sometimes return the year in quotes; therefore, you do need to test to see if the object returned was an NSNumber or an NSString. In the cases where the responses include a [, it means you are getting an array. For example:
+-movies: [
+Means that doing
+[resultsDictionary objectForKey:@"movies"]
+would return an NSArray of NSDictionary.
+
+Find the movie in the list of results and get its id
+Now finding the movie in the list will depend on your search criteria. We used the year to match. The code looks like this:
+NSString *aYear = yearField.text;
+NSDictionary *results = [jsonString objectFromJSONString];
+NSArray *movieArray = [results objectForKey:@"movies"];
+
+// Search for year to match
+for (NSDictionary *movie in movieArray)
+{
+NSNumber *year = [movie objectForKey:@"year"];
+
+if ([[year stringValue] isEqualToString:aYear])
+{
+NSNumber *ID = [movie objectForKey:@"id"];
+// Now use this ID for the next query
+}
+}
+
+Do specific query using the id
+Once you have obtained the id, you can then do another JSON request using the id. The URL will be of this form:
+http://api.rottentomatoes.com/api/public/v1.0/movies/MOVIEID.json?apikey=YOURKEY"
+That's basically it. Rotten Tomatoes provides extensive documentation on their API here.
+
+We are providing the code for this example here. Note that you will need to put in your API key at the top of RottenTomatoesJSONViewController.m class.
+
+UPDATE:: We are doing an informal poll to see the iOS verstion distribution amongst our readers. Head over to our statistics post and let us know which version you are currently using.

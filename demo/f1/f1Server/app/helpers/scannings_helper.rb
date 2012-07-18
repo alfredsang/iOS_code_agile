@@ -1,0 +1,2 @@
+module ScanningsHelper
+end

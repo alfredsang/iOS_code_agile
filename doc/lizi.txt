@@ -1,0 +1,34 @@
+
+创建项目
+
+helloworld xib
+
+helloworld
+
+web hello world
+
+1
+//[webview loadHTMLString:@"hello world" baseURL:nil];
+
+2
+//[webview stringByEvaluatingJavaScriptFromString:@"document.write('hello js world')"];
+
+3
+//NSString *path = [[NSBundle mainBundle] pathForResource:@"hello" ofType:@"html"];
+//NSURL *url = [NSURL URLWithString:path];
+//[webview loadRequest:[NSURLRequest requestWithURL:url]];
+
+
+点击按钮，显示alert，根据点击的按钮不同，改版label内容
+
+UINavigationController
+
+
+
+ASI 请求处理
+
+FMDB 数据处理
+
+tableview
+
+

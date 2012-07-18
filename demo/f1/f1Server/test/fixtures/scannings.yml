@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  scanUrl: MyString
+  scanDate: MyString
+  scanTitle: MyString
+
+two:
+  scanUrl: MyString
+  scanDate: MyString
+  scanTitle: MyString
