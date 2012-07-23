@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A6273F7315BD373F0042C29C /* CXFeedbackViewControllerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6273F6F15BD373F0042C29C /* CXFeedbackViewControllerViewController.m */; };
+		A6273F7415BD373F0042C29C /* CXFeedbackViewControllerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6273F7015BD373F0042C29C /* CXFeedbackViewControllerViewController.xib */; };
+		A6273F7515BD373F0042C29C /* CXTextPHView.m in Sources */ = {isa = PBXBuildFile; fileRef = A6273F7215BD373F0042C29C /* CXTextPHView.m */; };
+		A6273F7815BD403F0042C29C /* recommand_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = A6273F7715BD403F0042C29C /* recommand_bg.png */; };
 		A652BA4215B41DC300ADB200 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A652BA4115B41DC300ADB200 /* UIKit.framework */; };
 		A652BA4415B41DC300ADB200 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A652BA4315B41DC300ADB200 /* Foundation.framework */; };
 		A652BA4615B41DC300ADB200 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A652BA4515B41DC300ADB200 /* CoreGraphics.framework */; };
@@ -57,6 +61,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A6273F6E15BD373F0042C29C /* CXFeedbackViewControllerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CXFeedbackViewControllerViewController.h; sourceTree = "<group>"; };
+		A6273F6F15BD373F0042C29C /* CXFeedbackViewControllerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CXFeedbackViewControllerViewController.m; sourceTree = "<group>"; };
+		A6273F7015BD373F0042C29C /* CXFeedbackViewControllerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CXFeedbackViewControllerViewController.xib; sourceTree = "<group>"; };
+		A6273F7115BD373F0042C29C /* CXTextPHView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CXTextPHView.h; sourceTree = "<group>"; };
+		A6273F7215BD373F0042C29C /* CXTextPHView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CXTextPHView.m; sourceTree = "<group>"; };
+		A6273F7715BD403F0042C29C /* recommand_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = recommand_bg.png; sourceTree = "<group>"; };
 		A652BA3D15B41DC300ADB200 /* f1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = f1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A652BA4115B41DC300ADB200 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		A652BA4315B41DC300ADB200 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -155,6 +165,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A6273F6D15BD373F0042C29C /* feedback */ = {
+			isa = PBXGroup;
+			children = (
+				A6273F7715BD403F0042C29C /* recommand_bg.png */,
+				A6273F6E15BD373F0042C29C /* CXFeedbackViewControllerViewController.h */,
+				A6273F6F15BD373F0042C29C /* CXFeedbackViewControllerViewController.m */,
+				A6273F7015BD373F0042C29C /* CXFeedbackViewControllerViewController.xib */,
+				A6273F7115BD373F0042C29C /* CXTextPHView.h */,
+				A6273F7215BD373F0042C29C /* CXTextPHView.m */,
+			);
+			path = feedback;
+			sourceTree = "<group>";
+		};
 		A652BA3215B41DC300ADB200 = {
 			isa = PBXGroup;
 			children = (
@@ -190,6 +213,7 @@
 		A652BA4715B41DC300ADB200 /* f1 */ = {
 			isa = PBXGroup;
 			children = (
+				A6273F6D15BD373F0042C29C /* feedback */,
 				A652BAEA15B42EA100ADB200 /* httpService */,
 				A652BAC115B42B2300ADB200 /* datamodel */,
 				A652BAEE15B42F3700ADB200 /* view */,
@@ -417,6 +441,8 @@
 				A6C6A53215B43FA800578C1E /* CHANGELOG.md in Resources */,
 				A6C6A53415B43FA800578C1E /* README.md in Resources */,
 				A6C6A53615B50B7900578C1E /* tb_cell_normal_light.png in Resources */,
+				A6273F7415BD373F0042C29C /* CXFeedbackViewControllerViewController.xib in Resources */,
+				A6273F7815BD403F0042C29C /* recommand_bg.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -451,6 +477,8 @@
 				A652BAED15B42EB300ADB200 /* ITTDataRequest.m in Sources */,
 				A652BAF415B42F3700ADB200 /* ScanningCell.m in Sources */,
 				A6C6A53315B43FA800578C1E /* JSONKit.m in Sources */,
+				A6273F7315BD373F0042C29C /* CXFeedbackViewControllerViewController.m in Sources */,
+				A6273F7515BD373F0042C29C /* CXTextPHView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -52,9 +52,13 @@
 }
 
 -(IBAction)hello:(id)sender{
-    UIAlertView *a = [[UIAlertView alloc] initWithTitle:@"信息提示" message:@"ios简单吗？" delegate:self cancelButtonTitle:@"cancel" otherButtonTitles:@"ok", nil];
-    
-    [a show];
+    CXFeedbackViewControllerViewController *a =[CXFeedbackViewControllerViewController new];
+    a.view.frame = [[UIScreen mainScreen] bounds];
+    [self.view addSubview:a.view];
+//    
+//    UIAlertView *a = [[UIAlertView alloc] initWithTitle:@"信息提示" message:@"ios简单吗？" delegate:self cancelButtonTitle:@"cancel" otherButtonTitles:@"ok", nil];
+//    
+//    [a show];
 
 }
 
