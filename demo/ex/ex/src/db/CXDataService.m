@@ -210,32 +210,31 @@
 
 
 #pragma mark - shiti methods Implemtions
-- (NSArray *)shiti_find_by_id{
-    FMResultSet *_rs = [db executeQuery:@"select distinct scanUrl,scanDate,scanTitle from tb_scanning order by id desc"];
-    NSMutableArray *ret_array =  [[NSMutableArray alloc] init];
-    
+- (DM_Shiti *)shiti_find_by_id:(int)tid{
+    FMResultSet *_rs = [db executeQueryWithFormat:@"select tName,tPicAddr,a1, a2, a3 , a4 , a5 , tanswer, tdesc,chapter from tb_shiti where id=%d",tid]; 
+     
     if (_rs) {
         while ([_rs next]) {
             
-            //retrieve values for each record
-            NSString *url = [_rs stringForColumn:@"scanUrl"];
-            NSString *date = [_rs stringForColumn:@"scanDate"];
-            NSString *title = [_rs stringForColumn:@"scanTitle"];
+            NSLog(@"--%@",[_rs stringForColumn:@"tName"]  );
+            //            int * tid = [_rs intForColumn:@"id"];
+            NSString *tName = [_rs stringForColumn:@"tName"];
+            NSString *tPicAddr = [_rs stringForColumn:@"tPicAddr"];
+            NSString *a1 = [_rs stringForColumn:@"a1"];
+            NSString *a2 = [_rs stringForColumn:@"a2"];
+            NSString *a3 = [_rs stringForColumn:@"a3"];
+            NSString *a4 = [_rs stringForColumn:@"a4"];
+            NSString *a5 = [_rs stringForColumn:@"a5"];
+            int tanswer = [_rs intForColumn:@"tanswer"];
+            NSString *tdesc = [_rs stringForColumn:@"tdesc"];
+            NSString *chapter = [_rs stringForColumn:@"chapter"];
             
-            DM_Scanning *scan = [[DM_Scanning alloc] init:url withTitle:title withDate:date];
-            [ret_array addObject:scan];
-            [scan release];
+            DM_Shiti *shiti = [[DM_Shiti alloc] initWith:tName tPicAddr:tPicAddr a1:a1 a2:a2 a3:a3 a4:a4 a5:a5 tanswer:tanswer tdesc:tdesc chapter:chapter];
+            
+            return [shiti autorelease];
         }
-        return [ret_array autorelease];
-        
-    }else {
-        //        NSLog(OC("ERROR_OC: Failed to loadCachedMeetingServersWithGroupType with coming message : %@, error code : %d"), [db lastErrorMessage], [db lastErrorCode]);
-        [ret_array release];
-        ret_array = nil;
-        return nil;
-        
     }
-    
+    return nil;
 }
 
 

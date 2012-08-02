@@ -27,4 +27,6 @@
 - (void)scanning_add:(DM_Scanning *)s;
 
 
+
+- (DM_Shiti *)shiti_find_by_id:(int)tid;
 @end

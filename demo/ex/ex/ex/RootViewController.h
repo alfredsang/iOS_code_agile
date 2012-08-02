@@ -7,7 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ShitiViewController.h"
 
 @interface RootViewController : UIViewController
+
+
+-(IBAction)showShitiView:(id)sender;
+
+
+-(IBAction)a;
+
 
 @end

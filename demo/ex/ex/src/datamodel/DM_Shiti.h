@@ -17,8 +17,19 @@
 @property(nonatomic,retain,readwrite) NSString *a3;
 @property(nonatomic,retain,readwrite) NSString *a4;
 @property(nonatomic,retain,readwrite) NSString *a5;
-@property(nonatomic,retain,readwrite) NSString *tanswer;
+@property(nonatomic,assign,readwrite) int tanswer;
 @property(nonatomic,retain,readwrite) NSString *tdesc;
 @property(nonatomic,retain,readwrite) NSString *chapter;
+
+
+- (id)initWith: (NSString *)ptName tPicAddr:(NSString *)ptPicAddr  
+              a1:(NSString *) pa1   
+              a2:(NSString *)pa2   
+              a3:(NSString *)pa3   
+              a4:(NSString *)pa4 
+              a5:(NSString *)pa5   
+         tanswer:(int)ptanswer 
+           tdesc:(NSString *)ptdesc   
+         chapter:(NSString *)pchapter;
 
 @end

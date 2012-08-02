@@ -41,4 +41,17 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
+-(IBAction)showShitiView:(id)sender{
+    ShitiViewController *svc = [[ShitiViewController alloc] init];
+    svc.view.frame = CGRectMake(0, 0, 320, 480);
+    [self.view addSubview:svc.view];
+ 
+    
+}
+
+
+-(IBAction)a{
+
+
+}
 @end
