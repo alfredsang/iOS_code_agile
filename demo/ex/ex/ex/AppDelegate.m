@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "ShitiViewController.h"
+#import "RootViewController.h"
 
 @implementation AppDelegate
 
@@ -25,7 +25,7 @@
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     
-    ShitiViewController *rootVC = [[ShitiViewController alloc] init];
+    RootViewController *rootVC = [[RootViewController alloc] init];
     rootVC.view.frame = self.window.frame;
     [self.window addSubview:rootVC.view];
     [self.window makeKeyAndVisible];

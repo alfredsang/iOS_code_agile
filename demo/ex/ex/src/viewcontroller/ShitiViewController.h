@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SummaryViewController.h"
 #import "DM_Shiti.h"
+
+ 
 
 @interface ShitiViewController : UIViewController{
     int _currentTid;
@@ -17,7 +20,7 @@
 
 @property(nonatomic,assign,readwrite) IBOutlet UILabel *ui_tid;
 @property(nonatomic,retain,readwrite) IBOutlet UILabel *ui_tName;
-@property(nonatomic,retain,readwrite) IBOutlet UILabel *ui_tPicAddr;
+@property(nonatomic,retain,readwrite) IBOutlet UIImageView *ui_tPicAddr;
 @property(nonatomic,retain,readwrite) IBOutlet UIButton *ui_a1;
 @property(nonatomic,retain,readwrite) IBOutlet UIButton *ui_a2;
 @property(nonatomic,retain,readwrite) IBOutlet UIButton *ui_a3;
@@ -30,7 +33,12 @@
 
 - (void)handleSwipeFromLeft:(UISwipeGestureRecognizer *)recognize;
 
+-(void)jumpTo:(NSNumber *)tPageNumber;
 
--(IBAction)a;
+-(IBAction)left:(id)sender;
+-(IBAction)right:(id)sender;
+
+-(IBAction)whenClickAnswerBtn:(UIButton *)sender;
+ 
 
 @end

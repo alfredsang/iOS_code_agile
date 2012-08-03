@@ -17,5 +17,7 @@
 
 -(IBAction)a;
 
+-(IBAction)testNow:(id)sender;
+
 
 @end

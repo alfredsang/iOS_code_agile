@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A639A8AB15CBAA15007063E6 /* ui_bg_blue.png in Resources */ = {isa = PBXBuildFile; fileRef = A639A8AA15CBAA15007063E6 /* ui_bg_blue.png */; };
+		A639A8AE15CBB8A6007063E6 /* ui_summary_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = A639A8AD15CBB8A6007063E6 /* ui_summary_bg.png */; };
+		A639A8B015CBB99B007063E6 /* start.png in Resources */ = {isa = PBXBuildFile; fileRef = A639A8AF15CBB99B007063E6 /* start.png */; };
+		A639A8B215CBB9A5007063E6 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = A639A8B115CBB9A5007063E6 /* Default.png */; };
+		A639A8B415CBB9AB007063E6 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A639A8B315CBB9AB007063E6 /* Default@2x.png */; };
+		A653D04115CB73A600FA6B25 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = A653D04015CB73A600FA6B25 /* logo.png */; };
+		A653D04515CB740400FA6B25 /* logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A653D04415CB740400FA6B25 /* logo@2x.png */; };
+		A653D04915CB817700FA6B25 /* SummaryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A653D04715CB817700FA6B25 /* SummaryViewController.m */; };
+		A653D04C15CB818E00FA6B25 /* SummaryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A653D04B15CB818E00FA6B25 /* SummaryViewController.xib */; };
 		A6980A2D15CA214E00DF5BFF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6980A2C15CA214E00DF5BFF /* UIKit.framework */; };
 		A6980A2F15CA214E00DF5BFF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6980A2E15CA214E00DF5BFF /* Foundation.framework */; };
 		A6980A3115CA214E00DF5BFF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6980A3015CA214E00DF5BFF /* CoreGraphics.framework */; };
@@ -96,6 +105,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A639A8AA15CBAA15007063E6 /* ui_bg_blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ui_bg_blue.png; sourceTree = "<group>"; };
+		A639A8AD15CBB8A6007063E6 /* ui_summary_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ui_summary_bg.png; sourceTree = "<group>"; };
+		A639A8AF15CBB99B007063E6 /* start.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = start.png; sourceTree = "<group>"; };
+		A639A8B115CBB9A5007063E6 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		A639A8B315CBB9AB007063E6 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		A653D04015CB73A600FA6B25 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo.png; path = ../../../logo.png; sourceTree = "<group>"; };
+		A653D04415CB740400FA6B25 /* logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "logo@2x.png"; path = "../../../logo@2x.png"; sourceTree = "<group>"; };
+		A653D04615CB817700FA6B25 /* SummaryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SummaryViewController.h; sourceTree = "<group>"; };
+		A653D04715CB817700FA6B25 /* SummaryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SummaryViewController.m; sourceTree = "<group>"; };
+		A653D04B15CB818E00FA6B25 /* SummaryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SummaryViewController.xib; sourceTree = "<group>"; };
 		A6980A2815CA214E00DF5BFF /* ex.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ex.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6980A2C15CA214E00DF5BFF /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		A6980A2E15CA214E00DF5BFF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -254,9 +273,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A653D03C15CB739900FA6B25 /* image */ = {
+			isa = PBXGroup;
+			children = (
+				A639A8AF15CBB99B007063E6 /* start.png */,
+				A639A8AD15CBB8A6007063E6 /* ui_summary_bg.png */,
+				A639A8AA15CBAA15007063E6 /* ui_bg_blue.png */,
+				A653D04015CB73A600FA6B25 /* logo.png */,
+				A653D04415CB740400FA6B25 /* logo@2x.png */,
+			);
+			path = image;
+			sourceTree = "<group>";
+		};
 		A6980A1D15CA214E00DF5BFF = {
 			isa = PBXGroup;
 			children = (
+				A639A8B315CBB9AB007063E6 /* Default@2x.png */,
+				A639A8B115CBB9A5007063E6 /* Default.png */,
 				A6980A3215CA214E00DF5BFF /* ex */,
 				A6980A2B15CA214E00DF5BFF /* Frameworks */,
 				A6980A2915CA214E00DF5BFF /* Products */,
@@ -498,6 +531,8 @@
 			children = (
 				A6980B3215CA315D00DF5BFF /* ShitiViewController.h */,
 				A6980B3315CA315D00DF5BFF /* ShitiViewController.m */,
+				A653D04615CB817700FA6B25 /* SummaryViewController.h */,
+				A653D04715CB817700FA6B25 /* SummaryViewController.m */,
 			);
 			path = viewcontroller;
 			sourceTree = "<group>";
@@ -505,6 +540,7 @@
 		A6980B3715CA318500DF5BFF /* resource */ = {
 			isa = PBXGroup;
 			children = (
+				A653D03C15CB739900FA6B25 /* image */,
 				A6980B3815CA318500DF5BFF /* xib */,
 			);
 			path = resource;
@@ -513,6 +549,7 @@
 		A6980B3815CA318500DF5BFF /* xib */ = {
 			isa = PBXGroup;
 			children = (
+				A653D04B15CB818E00FA6B25 /* SummaryViewController.xib */,
 				A6980B3915CA31B800DF5BFF /* ShitiViewController.xib */,
 			);
 			path = xib;
@@ -599,6 +636,14 @@
 				A6980B2A15CA265600DF5BFF /* RootViewController.xib in Resources */,
 				A6980B2C15CA283600DF5BFF /* README.md in Resources */,
 				A6980B3A15CA31B800DF5BFF /* ShitiViewController.xib in Resources */,
+				A653D04115CB73A600FA6B25 /* logo.png in Resources */,
+				A653D04515CB740400FA6B25 /* logo@2x.png in Resources */,
+				A653D04C15CB818E00FA6B25 /* SummaryViewController.xib in Resources */,
+				A639A8AB15CBAA15007063E6 /* ui_bg_blue.png in Resources */,
+				A639A8AE15CBB8A6007063E6 /* ui_summary_bg.png in Resources */,
+				A639A8B015CBB99B007063E6 /* start.png in Resources */,
+				A639A8B215CBB9A5007063E6 /* Default.png in Resources */,
+				A639A8B415CBB9AB007063E6 /* Default@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -657,6 +702,7 @@
 				A6980B2915CA265600DF5BFF /* RootViewController.m in Sources */,
 				A6980B2F15CA2DF300DF5BFF /* DM_Shiti.m in Sources */,
 				A6980B3515CA315D00DF5BFF /* ShitiViewController.m in Sources */,
+				A653D04915CB817700FA6B25 /* SummaryViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -780,6 +826,7 @@
 				A6980A4215CA214E00DF5BFF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

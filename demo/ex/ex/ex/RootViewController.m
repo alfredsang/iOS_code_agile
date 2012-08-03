@@ -45,8 +45,6 @@
     ShitiViewController *svc = [[ShitiViewController alloc] init];
     svc.view.frame = CGRectMake(0, 0, 320, 480);
     [self.view addSubview:svc.view];
- 
-    
 }
 
 
@@ -54,4 +52,18 @@
 
 
 }
+
+-(IBAction)testNow:(id)sender{
+    
+    
+    ShitiViewController *setView = [[ShitiViewController alloc] init];
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:setView];  
+    navController.title = @"要闻";
+ 
+    navController.navigationBarHidden = YES;
+ 
+    [self presentModalViewController:navController animated:YES];
+    [navController release];
+}
+
 @end

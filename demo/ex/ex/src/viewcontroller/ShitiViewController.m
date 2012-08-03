@@ -38,8 +38,14 @@
     [self getShiti];
     
     //    [CXDataService sharedInstance]
-    
+    [self addGestureRecognizer];
  
+    [super viewDidLoad];
+    // Do any additional setup after loading the view from its nib.
+}
+
+- (void)addGestureRecognizer{
+    
     UISwipeGestureRecognizer *recognizer;    
     recognizer = [[UISwipeGestureRecognizer alloc] init];    
     [recognizer addTarget:self action:@selector(handleSwipeFromLeft:)];
@@ -47,17 +53,14 @@
     [[self view] addGestureRecognizer:recognizer];    
     [recognizer release];
     
- 
+    
     recognizer = [[UISwipeGestureRecognizer alloc] init];    
     [recognizer addTarget:self action:@selector(handleSwipeFromRight:)];
     [recognizer setDirection:UISwipeGestureRecognizerDirectionRight];
     [[self view] addGestureRecognizer:recognizer];    
     [recognizer release];
     
-    [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
 }
-
 - (void)handleSwipeFromRight:(UISwipeGestureRecognizer *)recognize{
     if (_currentTid > 0) {
         _currentTid--;
@@ -75,22 +78,95 @@
 
 
 - (void)getShiti{
-    _shiti = [[CXDataService sharedInstance]  shiti_find_by_id:_currentTid];
-    [self setShiti:_shiti];
+    _shiti = [[[CXDataService sharedInstance]  shiti_find_by_id:_currentTid] retain];
+    [self setShiti:_shiti];   
     NSLog(@"%@",_shiti.tName);
 }
 
 - (void)setShiti:(DM_Shiti *)shiti{
-    [self.ui_a1 setTitle:shiti.a1 forState:UIControlStateNormal];
-    [self.ui_a2 setTitle:shiti.a2 forState:UIControlStateNormal];
-    [self.ui_a3 setTitle:shiti.a3 forState:UIControlStateNormal];
-    [self.ui_a4 setTitle:shiti.a4 forState:UIControlStateNormal];
-    [self.ui_a5 setTitle:shiti.a5 forState:UIControlStateNormal];
+    if (_currentTid == 0) {
+        SummaryViewController *s = [SummaryViewController new];
+        [self.view addSubview:s.view];        
+        //[s release];
+        return;
+    }
+    [self resetAllAnswerBtn];
+    [self hideOrShow:shiti.a1 withBtn:self.ui_a1];
+    [self hideOrShow:shiti.a2 withBtn:self.ui_a2];
+    [self hideOrShow:shiti.a3 withBtn:self.ui_a3];
+    [self hideOrShow:shiti.a4 withBtn:self.ui_a4];
+    [self hideOrShow:shiti.a5 withBtn:self.ui_a5];
+     
+
     self.ui_chapter.text = shiti.chapter;
     self.ui_tName.text = shiti.tName;
     self.ui_tdesc.text = shiti.tdesc;
     self.ui_tid.text = [NSString stringWithFormat:@"%d",_currentTid];
+    
+//    [self.ui_tName ]
+    if (shiti.tPicAddr == nil || [shiti.tPicAddr  isEqualToString:@"" ]) {
+        self.ui_tPicAddr.hidden = YES;
+        self.ui_tName.frame = CGRectMake(10, 78, 300,87); 
+    }else {
+        self.ui_tName.frame = CGRectMake(10, 78, 250, 87); 
+        self.ui_tPicAddr.hidden = NO;
+    }
+    
 
+}
+
+- (void)resetAllAnswerBtn{
+    [self resetWithBtn:self.ui_a1];
+    [self resetWithBtn:self.ui_a2];
+    [self resetWithBtn:self.ui_a3];
+    [self resetWithBtn:self.ui_a4];
+    [self resetWithBtn:self.ui_a5];
+}
+- (void)resetWithBtn:(UIButton *)sender{
+    [sender setBackgroundColor:[UIColor whiteColor]];
+    [sender setEnabled:YES];
+    [sender setOpaque:YES];
+    [sender setAlpha:1.0f];
+    [sender setContentHorizontalAlignment:UIControlContentHorizontalAlignmentLeft];
+    [sender.titleLabel setFont:[UIFont systemFontOfSize:15]];
+}
+
+- (void)hideOrShow:(NSString *)str withBtn:(UIButton *)btn{
+    if (str == nil || [str isEqualToString:@""]) {
+        btn.hidden = YES;
+        return;
+    }
+    btn.hidden = NO;
+    NSString *title;
+    
+    switch (btn.tag) {
+        case 1:
+            title = [NSString stringWithFormat:@"  A:%@",str];
+            break;
+
+        case 2:
+            title = [NSString stringWithFormat:@"  B:%@",str];
+            break;
+
+        case 3:
+            title = [NSString stringWithFormat:@"  C:%@",str];
+            break;
+
+        case 4:
+            title = [NSString stringWithFormat:@"  D:%@",str];
+            break;
+
+        case 5:
+            title = [NSString stringWithFormat:@"  E:%@",str];
+            break;
+
+        default:
+            break;
+    }
+    
+    [btn setTitle:title forState:UIControlStateNormal];
+    [btn setTitle:title forState:UIControlStateHighlighted];
+    [btn setTitle:title forState:UIControlStateSelected];
 }
 
 - (void)viewDidUnload
@@ -103,6 +179,51 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+-(IBAction)left:(id)sender{
+    if (_currentTid > 0) {
+        _currentTid--;
+        
+        [self getShiti];
+    }
+}
+
+-(IBAction)right:(id)sender{
+    _currentTid++;
+    
+    [self getShiti];
+
+}
+
+
+-(IBAction)back:(id)sender{
+    [self.navigationController popToRootViewControllerAnimated:YES];
+    [self dismissModalViewControllerAnimated:YES];
+}
+
+-(IBAction)whenClickAnswerBtn:(UIButton *)sender{
+    for (int i=1; i<=5; i++) {
+        if (sender.tag == _shiti.tanswer) {
+            [sender setBackgroundColor:[UIColor greenColor]];
+            sender.titleLabel.font = [UIFont systemFontOfSize:20];
+            sender.titleLabel.textColor = [UIColor blueColor];
+            [sender setContentHorizontalAlignment:UIControlContentHorizontalAlignmentCenter];
+        }else {
+            [sender setBackgroundColor:[UIColor grayColor]];
+            [sender setEnabled:NO];
+            [sender setOpaque:YES];
+            [sender setAlpha:0.5f];
+        }
+    }
+}
+
+#pragma mark - public methods implemetions
+
+-(void)jumpTo:(NSNumber *)tPageNumber{
+    [self addGestureRecognizer];
+    _currentTid = [tPageNumber intValue];
+    [self getShiti];
 }
 
 @end
