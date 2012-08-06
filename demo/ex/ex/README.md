@@ -52,3 +52,22 @@ chapter string;
 rails generate scaffold iLog appname:string appVersion:string filename:string linename:integer loglevel:string logcategoryname:string logcontent:text
 
 在rails里，id和创建的时间戳是默认生成。所以上面的语句足够了。
+
+
+
+
+
+顺序练习
+随机练习
+章节练习
+模拟考试-交卷，收藏
+我的错题
+我的收藏
+
+
+查看答案
+收藏里，移除此题，取消收藏，查看答案
+
+
+
+
