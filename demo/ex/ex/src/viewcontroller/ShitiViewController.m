@@ -81,6 +81,7 @@
     _shiti = [[[CXDataService sharedInstance]  shiti_find_by_id:_currentTid] retain];
     [self setShiti:_shiti];   
     NSLog(@"%@",_shiti.tName);
+    NSLog(@"%@",_shiti.tanswer);
 }
 
 - (void)setShiti:(DM_Shiti *)shiti{
@@ -97,14 +98,14 @@
     [self hideOrShow:shiti.a4 withBtn:self.ui_a4];
     [self hideOrShow:shiti.a5 withBtn:self.ui_a5];
      
-
-    self.ui_chapter.text = shiti.chapter;
+//
+//    self.ui_chapter.text = shiti.chapter;
     self.ui_tName.text = shiti.tName;
     self.ui_tdesc.text = shiti.tdesc;
     self.ui_tid.text = [NSString stringWithFormat:@"%d",_currentTid];
     
 //    [self.ui_tName ]
-    if (shiti.tPicAddr == nil || [shiti.tPicAddr  isEqualToString:@"" ]) {
+    if (shiti.tPicAddress == nil || [shiti.tPicAddress  isEqualToString:@"" ]) {
         self.ui_tPicAddr.hidden = YES;
         self.ui_tName.frame = CGRectMake(10, 78, 300,87); 
     }else {
@@ -203,8 +204,10 @@
 }
 
 -(IBAction)whenClickAnswerBtn:(UIButton *)sender{
+    int mid = [_shiti.tanswer intValue];
+    
     for (int i=1; i<=5; i++) {
-        if (sender.tag == _shiti.tanswer) {
+         if (sender.tag == mid) {
             [sender setBackgroundColor:[UIColor greenColor]];
             sender.titleLabel.font = [UIFont systemFontOfSize:20];
             sender.titleLabel.textColor = [UIColor blueColor];

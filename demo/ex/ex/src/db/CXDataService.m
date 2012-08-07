@@ -211,27 +211,42 @@
 
 #pragma mark - shiti methods Implemtions
 - (DM_Shiti *)shiti_find_by_id:(int)tid{
-    FMResultSet *_rs = [db executeQueryWithFormat:@"select tName,tPicAddr,a1, a2, a3 , a4 , a5 , tanswer, tdesc,chapter from tb_shiti where id=%d",tid]; 
+    FMResultSet *_rs = [db executeQueryWithFormat:@"select id,tid,zid,tName,tPicAddress,a1, a2, a3 , a4 , a5 , tanswer, tdesc from tb_shiti where id=%d",tid]; 
      
     if (_rs) {
         while ([_rs next]) {
             
+            //- id          自增id
+            //- tid         章节-带点
+            //- zid         章节-数值
+            //- tName       试题内容
+            //- tPicAddress 图片地址
+            //- a1          试题选项
+            //- a2          试题选项
+            //- a3          试题选项
+            //- a4          试题选项
+            //- tanswer     答案
+            //- tdesc       答案解释或提示
+
+            
             NSLog(@"--%@",[_rs stringForColumn:@"tName"]  );
             //            int * tid = [_rs intForColumn:@"id"];
+            int mid = [_rs intForColumn:@"id"];
+            NSString *tid = [_rs stringForColumn:@"tid"];
+            NSString *zid = [_rs stringForColumn:@"zid"];
             NSString *tName = [_rs stringForColumn:@"tName"];
-            NSString *tPicAddr = [_rs stringForColumn:@"tPicAddr"];
+            NSString *tPicAddress = [_rs stringForColumn:@"tPicAddress"];
             NSString *a1 = [_rs stringForColumn:@"a1"];
             NSString *a2 = [_rs stringForColumn:@"a2"];
             NSString *a3 = [_rs stringForColumn:@"a3"];
             NSString *a4 = [_rs stringForColumn:@"a4"];
             NSString *a5 = [_rs stringForColumn:@"a5"];
-            int tanswer = [_rs intForColumn:@"tanswer"];
+            NSString *tanswer = [_rs stringForColumn:@"tanswer"];
             NSString *tdesc = [_rs stringForColumn:@"tdesc"];
-            NSString *chapter = [_rs stringForColumn:@"chapter"];
             
-            DM_Shiti *shiti = [[DM_Shiti alloc] initWith:tName tPicAddr:tPicAddr a1:a1 a2:a2 a3:a3 a4:a4 a5:a5 tanswer:tanswer tdesc:tdesc chapter:chapter];
+            DM_Shiti *shiti = [[DM_Shiti alloc] initWithId:mid tid:tid zid:zid ptName:tName tPicAddress:tPicAddress a1:a1 a2:a2 a3:a3 a4:a4 a5:a5 tanswer:tanswer tdesc:tdesc];
             
-            return [shiti autorelease];
+            return shiti ;
         }
     }
     return nil;

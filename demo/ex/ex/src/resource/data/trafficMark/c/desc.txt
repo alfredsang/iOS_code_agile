@@ -1,0 +1,17 @@
+title=辅助标志
+b1.jpg=时间范围 
+b2.jpg=时间范围 
+b3.jpg=除公共汽车外 
+b4.jpg=机动车 
+b5.jpg=货车
+b6.jpg=货车、拖拉机 
+b7.jpg=向前200M 
+b8.jpg=向左100M 
+b9.jpg=向左、向右各50M
+b10.jpg=向右100M 
+b11.jpg=某区域内 
+b12.jpg=学校 
+b13.jpg=海关 
+b14.jpg=事故 
+b15.jpg=坍方 
+b16.jpg=组合 
