@@ -48,7 +48,7 @@
 						<int key="IBUIContentHorizontalAlignment">0</int>
 						<int key="IBUIContentVerticalAlignment">0</int>
 						<int key="IBUIButtonType">1</int>
-						<string key="IBUINormalTitle">试卷</string>
+						<string key="IBUINormalTitle">顺序练习</string>
 						<object class="NSColor" key="IBUIHighlightedTitleColor" id="920840844">
 							<int key="NSColorSpace">3</int>
 							<bytes key="NSWhite">MQA</bytes>
@@ -84,7 +84,7 @@
 						<int key="IBUIContentHorizontalAlignment">0</int>
 						<int key="IBUIContentVerticalAlignment">0</int>
 						<int key="IBUIButtonType">1</int>
-						<string key="IBUINormalTitle">测试</string>
+						<string key="IBUINormalTitle">章节练习</string>
 						<reference key="IBUIHighlightedTitleColor" ref="920840844"/>
 						<object class="NSColor" key="IBUINormalTitleColor">
 							<int key="NSColorSpace">1</int>
@@ -107,7 +107,7 @@
 						<int key="IBUIContentHorizontalAlignment">0</int>
 						<int key="IBUIContentVerticalAlignment">0</int>
 						<int key="IBUIButtonType">1</int>
-						<string key="IBUINormalTitle">错题库</string>
+						<string key="IBUINormalTitle">随机练习</string>
 						<reference key="IBUIHighlightedTitleColor" ref="920840844"/>
 						<object class="NSColor" key="IBUINormalTitleColor">
 							<int key="NSColorSpace">1</int>
@@ -123,14 +123,13 @@
 						<string key="NSFrame">{{170, 318}, {120, 120}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<int key="IBUIContentHorizontalAlignment">0</int>
 						<int key="IBUIContentVerticalAlignment">0</int>
 						<int key="IBUIButtonType">1</int>
-						<string key="IBUINormalTitle">设置</string>
+						<string key="IBUINormalTitle">我的收藏</string>
 						<reference key="IBUIHighlightedTitleColor" ref="920840844"/>
 						<object class="NSColor" key="IBUINormalTitleColor">
 							<int key="NSColorSpace">1</int>
@@ -146,14 +145,14 @@
 						<string key="NSFrame">{{170, 182}, {120, 120}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="510256801"/>
+						<reference key="NSNextKeyView" ref="118822219"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<int key="IBUIContentHorizontalAlignment">0</int>
 						<int key="IBUIContentVerticalAlignment">0</int>
 						<int key="IBUIButtonType">1</int>
-						<string key="IBUINormalTitle">图库</string>
+						<string key="IBUINormalTitle">模拟考试</string>
 						<reference key="IBUIHighlightedTitleColor" ref="920840844"/>
 						<object class="NSColor" key="IBUINormalTitleColor">
 							<int key="NSColorSpace">1</int>
@@ -163,7 +162,7 @@
 						<reference key="IBUIFontDescription" ref="519419660"/>
 						<reference key="IBUIFont" ref="933242559"/>
 					</object>
-					<object class="IBUIButton" id="510256801">
+					<object class="IBUIButton" id="118822219">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
 						<string key="NSFrame">{{30, 318}, {120, 120}}</string>
@@ -176,7 +175,7 @@
 						<int key="IBUIContentHorizontalAlignment">0</int>
 						<int key="IBUIContentVerticalAlignment">0</int>
 						<int key="IBUIButtonType">1</int>
-						<string key="IBUINormalTitle">收藏</string>
+						<string key="IBUINormalTitle">我的错题</string>
 						<reference key="IBUIHighlightedTitleColor" ref="920840844"/>
 						<object class="NSColor" key="IBUINormalTitleColor">
 							<int key="NSColorSpace">1</int>
@@ -214,21 +213,39 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
-						<string key="label">a</string>
+						<string key="label">showShitiView_seq:</string>
 						<reference key="source" ref="832557482"/>
 						<reference key="destination" ref="372490531"/>
 						<int key="IBEventType">7</int>
 					</object>
-					<int key="connectionID">9</int>
+					<int key="connectionID">16</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
-						<string key="label">testNow:</string>
+						<string key="label">showShitiView_chapter:</string>
 						<reference key="source" ref="875446084"/>
 						<reference key="destination" ref="372490531"/>
 						<int key="IBEventType">7</int>
 					</object>
-					<int key="connectionID">14</int>
+					<int key="connectionID">18</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchEventConnection" key="connection">
+						<string key="label">showShitiView_random:</string>
+						<reference key="source" ref="479443512"/>
+						<reference key="destination" ref="372490531"/>
+						<int key="IBEventType">7</int>
+					</object>
+					<int key="connectionID">17</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchEventConnection" key="connection">
+						<string key="label">showShitiView_exam:</string>
+						<reference key="source" ref="257404255"/>
+						<reference key="destination" ref="372490531"/>
+						<int key="IBEventType">7</int>
+					</object>
+					<int key="connectionID">19</int>
 				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -248,7 +265,7 @@
 							<reference ref="875446084"/>
 							<reference ref="257404255"/>
 							<reference ref="879772438"/>
-							<reference ref="510256801"/>
+							<reference ref="118822219"/>
 						</array>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -290,7 +307,7 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">15</int>
-						<reference key="object" ref="510256801"/>
+						<reference key="object" ref="118822219"/>
 						<reference key="parent" ref="191373211"/>
 					</object>
 				</array>
@@ -312,7 +329,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">15</int>
+			<int key="maxID">19</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -322,6 +339,10 @@
 					<dictionary class="NSMutableDictionary" key="actions">
 						<string key="a">id</string>
 						<string key="showShitiView:">id</string>
+						<string key="showShitiView_chapter:">id</string>
+						<string key="showShitiView_exam:">id</string>
+						<string key="showShitiView_random:">id</string>
+						<string key="showShitiView_seq:">id</string>
 						<string key="testNow:">id</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="actionInfosByName">
@@ -331,6 +352,22 @@
 						</object>
 						<object class="IBActionInfo" key="showShitiView:">
 							<string key="name">showShitiView:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="showShitiView_chapter:">
+							<string key="name">showShitiView_chapter:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="showShitiView_exam:">
+							<string key="name">showShitiView_exam:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="showShitiView_random:">
+							<string key="name">showShitiView_random:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="showShitiView_seq:">
+							<string key="name">showShitiView_seq:</string>
 							<string key="candidateClassName">id</string>
 						</object>
 						<object class="IBActionInfo" key="testNow:">

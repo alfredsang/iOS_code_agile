@@ -20,4 +20,11 @@
 -(IBAction)testNow:(id)sender;
 
 
+#pragma mark - btn
+-(IBAction)showShitiView_seq:(id)sender;
+-(IBAction)showShitiView_random:(id)sender;
+-(IBAction)showShitiView_chapter:(id)sender;
+-(IBAction)showShitiView_exam:(id)sender;
+
+
 @end

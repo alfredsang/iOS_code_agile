@@ -27,6 +27,32 @@
 @synthesize ui_ttid;
 @synthesize ui_tzid;
 
+- (id)initWithPattern:(MyPatternModel)myPattern{
+    if (self == [super init]) {
+        _myPattern = myPattern;
+        
+    }
+    return self;
+}
+
+- (void)processWithPattern:(MyPatternModel)pattern{
+    switch (pattern) {
+        case PatternModel_Seq:
+            [self p_seq];
+            break;
+        case PatternModel_Random:
+            [self p_random];
+            break;
+        case PatternModel_Chapter:
+            [self p_chater];
+            break;
+        case PatternModel_Exam:
+            [self p_exam];
+            break;
+        default:
+            break;
+    }
+}
 
 - (void)viewWillAppear:(BOOL)animated{
     
@@ -254,4 +280,21 @@
     [self getShiti];
 }
 
+#pragma mark - pattern callback methods implemetions
+
+- (void)p_seq{
+    
+}
+
+- (void)p_random{
+    
+}
+
+- (void)p_chater{
+    
+}
+
+- (void)p_exam{
+    
+}
 @end

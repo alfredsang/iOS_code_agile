@@ -42,7 +42,7 @@
 }
 
 -(IBAction)showShitiView:(id)sender{
-    ShitiViewController *svc = [[ShitiViewController alloc] init];
+    ShitiViewController *svc = [[ShitiViewController alloc] initWithPattern:1];
     svc.view.frame = CGRectMake(0, 0, 320, 480);
     [self.view addSubview:svc.view];
 }
@@ -54,8 +54,6 @@
 }
 
 -(IBAction)testNow:(id)sender{
-    
-    
     ShitiViewController *setView = [[ShitiViewController alloc] init];
     UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:setView];  
     navController.title = @"要闻";
@@ -65,5 +63,52 @@
     [self presentModalViewController:navController animated:YES];
     [navController release];
 }
+
+
+#pragma mark - btn
+-(IBAction)showShitiView_seq:(id)sender{
+    ShitiViewController *setView = [[ShitiViewController alloc] initWithPattern:PatternModel_Seq];
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:setView];
+    navController.title = @"要闻";
+    
+    navController.navigationBarHidden = YES;
+    
+    [self presentModalViewController:navController animated:YES];
+    [navController release];
+}
+
+-(IBAction)showShitiView_random:(id)sender;{
+    ShitiViewController *setView = [[ShitiViewController alloc] initWithPattern:PatternModel_Random];
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:setView];
+    navController.title = @"要闻";
+    
+    navController.navigationBarHidden = YES;
+         [self presentModalViewController:navController animated:YES];
+    [navController release];
+}
+
+-(IBAction)showShitiView_chapter:(id)sender{
+    ShitiViewController *setView = [[ShitiViewController alloc] initWithPattern:PatternModel_Chapter];
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:setView];
+    navController.title = @"要闻";
+    
+    navController.navigationBarHidden = YES;
+    
+    [self presentModalViewController:navController animated:YES];
+    [navController release];
+}
+
+-(IBAction)showShitiView_exam:(id)sender{
+    ShitiViewController *setView = [[ShitiViewController alloc] initWithPattern:PatternModel_Exam];
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:setView];
+    navController.title = @"要闻";
+    
+    navController.navigationBarHidden = YES;
+    
+    [self presentModalViewController:navController animated:YES];
+    [navController release];
+
+}
+
 
 @end

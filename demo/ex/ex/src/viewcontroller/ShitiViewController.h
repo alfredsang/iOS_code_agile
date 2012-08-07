@@ -15,6 +15,7 @@
 @interface ShitiViewController : UIViewController{
     int _currentTid;
     DM_Shiti *_shiti;
+    MyPatternModel _myPattern;
 }
 
 
@@ -31,6 +32,8 @@
 @property(nonatomic,retain,readwrite) IBOutlet UILabel *ui_tzid;
 @property(nonatomic,retain,readwrite) IBOutlet UILabel *ui_ttid;
 
+
+- (id)initWithPattern:(MyPatternModel)myPattern;
 
 - (void)handleSwipeFromLeft:(UISwipeGestureRecognizer *)recognize;
 
