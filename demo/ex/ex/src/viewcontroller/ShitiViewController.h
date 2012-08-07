@@ -28,7 +28,8 @@
 @property(nonatomic,retain,readwrite) IBOutlet UIButton *ui_a5;
 @property(nonatomic,assign,readwrite) IBOutlet UILabel *ui_tanswer;
 @property(nonatomic,retain,readwrite) IBOutlet UILabel *ui_tdesc;
-@property(nonatomic,retain,readwrite) IBOutlet UILabel *ui_chapter;
+@property(nonatomic,retain,readwrite) IBOutlet UILabel *ui_tzid;
+@property(nonatomic,retain,readwrite) IBOutlet UILabel *ui_ttid;
 
 
 - (void)handleSwipeFromLeft:(UISwipeGestureRecognizer *)recognize;
@@ -39,6 +40,10 @@
 -(IBAction)right:(id)sender;
 
 -(IBAction)whenClickAnswerBtn:(UIButton *)sender;
+/**
+ * 查看答案
+ */
+-(IBAction)viewAnswerBtn:(UIButton *)sender;
  
 
 @end

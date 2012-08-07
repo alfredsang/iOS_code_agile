@@ -24,7 +24,8 @@
 @synthesize ui_a5;
 @synthesize ui_tanswer;
 @synthesize ui_tdesc;
-@synthesize ui_chapter;
+@synthesize ui_ttid;
+@synthesize ui_tzid;
 
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -34,7 +35,7 @@
 
 - (void)viewDidLoad
 {
-    _currentTid = 1;
+    _currentTid = 237;
     [self getShiti];
     
     //    [CXDataService sharedInstance]
@@ -83,7 +84,8 @@
     NSLog(@"%@",_shiti.tName);
     NSLog(@"%@",_shiti.tanswer);
 }
-
+#define TI_Y      50
+#define TI_HEIGHT 106
 - (void)setShiti:(DM_Shiti *)shiti{
     if (_currentTid == 0) {
         SummaryViewController *s = [SummaryViewController new];
@@ -102,15 +104,17 @@
 //    self.ui_chapter.text = shiti.chapter;
     self.ui_tName.text = shiti.tName;
     self.ui_tdesc.text = shiti.tdesc;
+    self.ui_ttid.text = shiti.tid;
     self.ui_tid.text = [NSString stringWithFormat:@"%d",_currentTid];
     
 //    [self.ui_tName ]
     if (shiti.tPicAddress == nil || [shiti.tPicAddress  isEqualToString:@"" ]) {
         self.ui_tPicAddr.hidden = YES;
-        self.ui_tName.frame = CGRectMake(10, 78, 300,87); 
+        self.ui_tName.frame = CGRectMake(10, TI_Y, 300,TI_HEIGHT); 
     }else {
-        self.ui_tName.frame = CGRectMake(10, 78, 250, 87); 
+        self.ui_tName.frame = CGRectMake(10, TI_Y, 200, TI_HEIGHT); 
         self.ui_tPicAddr.hidden = NO;
+        [self.ui_tPicAddr setImage:[UIImage imageNamed:shiti.tPicAddress]];
     }
     
 
@@ -219,6 +223,27 @@
             [sender setAlpha:0.5f];
         }
     }
+}
+
+-(IBAction)viewAnswerBtn:(UIButton *)btn{
+    
+    int mid = [_shiti.tanswer intValue];
+
+    for (int i=1; i<=5; i++) {
+        UIButton * sender = [self.view viewWithTag:i];
+        if (sender.tag == mid) {
+            [sender setBackgroundColor:[UIColor greenColor]];
+            sender.titleLabel.font = [UIFont systemFontOfSize:20];
+            sender.titleLabel.textColor = [UIColor blueColor];
+            [sender setContentHorizontalAlignment:UIControlContentHorizontalAlignmentCenter];
+        }else {
+            [sender setBackgroundColor:[UIColor grayColor]];
+            [sender setEnabled:NO];
+            [sender setOpaque:YES];
+            [sender setAlpha:0.5f];
+        }
+    }
+    
 }
 
 #pragma mark - public methods implemetions
