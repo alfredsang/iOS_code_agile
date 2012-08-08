@@ -1051,6 +1051,9 @@
 		AAE0D60B15D1691E0046346F /* weibotable_top_toolbar_menu_arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AAE0D4C515D1691D0046346F /* weibotable_top_toolbar_menu_arrow@2x.png */; };
 		AAE0D60C15D1691E0046346F /* weibotable_write.png in Resources */ = {isa = PBXBuildFile; fileRef = AAE0D4C615D1691D0046346F /* weibotable_write.png */; };
 		AAE0D60D15D1691E0046346F /* weibotable_write@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AAE0D4C715D1691D0046346F /* weibotable_write@2x.png */; };
+		AAE0D61115D1D8F90046346F /* IMG_0677.PNG in Resources */ = {isa = PBXBuildFile; fileRef = AAE0D60E15D1D8C00046346F /* IMG_0677.PNG */; };
+		AAE0D61215D1D8F90046346F /* IMG_0678.PNG in Resources */ = {isa = PBXBuildFile; fileRef = AAE0D60F15D1D8D00046346F /* IMG_0678.PNG */; };
+		AAE0D61315D1D8F90046346F /* IMG_0679.PNG in Resources */ = {isa = PBXBuildFile; fileRef = AAE0D61015D1D8DF0046346F /* IMG_0679.PNG */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -2152,6 +2155,9 @@
 		AAE0D4C515D1691D0046346F /* weibotable_top_toolbar_menu_arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "weibotable_top_toolbar_menu_arrow@2x.png"; sourceTree = "<group>"; };
 		AAE0D4C615D1691D0046346F /* weibotable_write.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = weibotable_write.png; sourceTree = "<group>"; };
 		AAE0D4C715D1691D0046346F /* weibotable_write@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "weibotable_write@2x.png"; sourceTree = "<group>"; };
+		AAE0D60E15D1D8C00046346F /* IMG_0677.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = IMG_0677.PNG; path = ../../../../IMG_0677.PNG; sourceTree = "<group>"; };
+		AAE0D60F15D1D8D00046346F /* IMG_0678.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = IMG_0678.PNG; path = ../../../../IMG_0678.PNG; sourceTree = "<group>"; };
+		AAE0D61015D1D8DF0046346F /* IMG_0679.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = IMG_0679.PNG; path = ../../../../IMG_0679.PNG; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -2990,6 +2996,9 @@
 				A6980B2615CA265600DF5BFF /* RootViewController.h */,
 				A6980B2715CA265600DF5BFF /* RootViewController.m */,
 				A6980B2815CA265600DF5BFF /* RootViewController.xib */,
+				AAE0D60E15D1D8C00046346F /* IMG_0677.PNG */,
+				AAE0D60F15D1D8D00046346F /* IMG_0678.PNG */,
+				AAE0D61015D1D8DF0046346F /* IMG_0679.PNG */,
 				A6980A3315CA214E00DF5BFF /* Supporting Files */,
 			);
 			path = ex;
@@ -4601,6 +4610,9 @@
 				AAE0D60B15D1691E0046346F /* weibotable_top_toolbar_menu_arrow@2x.png in Resources */,
 				AAE0D60C15D1691E0046346F /* weibotable_write.png in Resources */,
 				AAE0D60D15D1691E0046346F /* weibotable_write@2x.png in Resources */,
+				AAE0D61115D1D8F90046346F /* IMG_0677.PNG in Resources */,
+				AAE0D61215D1D8F90046346F /* IMG_0678.PNG in Resources */,
+				AAE0D61315D1D8F90046346F /* IMG_0679.PNG in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
