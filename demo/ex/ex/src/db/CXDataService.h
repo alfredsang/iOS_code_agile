@@ -29,4 +29,16 @@
 
 
 - (DM_Shiti *)shiti_find_by_id:(int)tid;
+
+/**
+ * 随机查处所有试题
+ */
+- (NSMutableArray *)shiti_find_all_random;
+
+/**
+ * 随机查处所有试题对应的key=id
+ */
+- (NSMutableArray *)shiti_find_all_key_random;
+
+
 @end

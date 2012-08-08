@@ -50,32 +50,64 @@ rails generate scaffold iLog appname:string appVersion:string filename:string li
 
 
 
+## 模式
 
-顺序练习
-随机练习
-章节练习
-模拟考试-交卷，收藏
-我的错题
-我的收藏
+typedef enum {
+    PatternModel_Seq = 0,//顺序练习
+    PatternModel_Random = 1,//随机练习
+    PatternModel_Chapter = 2,//章节练习
+    PatternModel_Exam = 3,//模拟考试-交卷，收藏
+} MyPatternModel;
+
+- 自由模式
+    --顺序练习
+    --随机练习
+    --章节练习
+- 答题模式
+    --模拟考试
+
+## 公共设置
+
+下拉
+
+- 答题后直接跳到下一页
+- 答题后显示答案
+- 答题后显示解释信息
+- 答题模式，自由|答题
+
+##功能设计
+
+### 顺序练习
+1------最后
+
+### 随机练习
+产生随机数（1--最后）
+
+#### 查出所有随机题的id，然后仍然按照id去查题，这样效率更好
+
+
+
+### 章节练习
+分类
+
+### 模拟考试
+-交卷，收藏，限时
+
+### 我的错题
+
+
+### 我的收藏
 
 
 查看答案
 收藏里，移除此题，取消收藏，查看答案
 
+ 
+- [清空考试痕迹按钮]
 
 
 
-	printf( "insert into tb_shiti(tid,tName, tanswer,  a1, a2, a3 , a4  , tdesc) 
-	                       values(%s  ,#%s#,   #%s#,          #%s#, #%s#,#%s#,#%s#,  #%s#, ) -- \n"
-								,$1,myarr[1],myarr[2],myarr[3],myarr[4],myarr[5],myarr[6],myarr[7]);
-								
 
-
-
-								myarr[2] 是答案
-								,myarr[3--6] --哦屁用
-								,myarr[7] ---	desc
-                                
                                 
 
 

@@ -26,6 +26,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.view.frame = CGRectMake(0, 20, 320, 460);
     // Do any additional setup after loading the view from its nib.
 }
 

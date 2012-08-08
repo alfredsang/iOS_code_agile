@@ -9,17 +9,27 @@
 #import <UIKit/UIKit.h>
 #import "SummaryViewController.h"
 #import "DM_Shiti.h"
-
+#import <QuartzCore/QuartzCore.h>
+#import <QuartzCore/QuartzCore.h>
  
 
 @interface ShitiViewController : UIViewController{
+    /**
+     * 当前id
+     */
     int _currentTid;
     DM_Shiti *_shiti;
     MyPatternModel _myPattern;
+    /**
+     * 当前数据源的id
+     */
+    int _dsId;
+    
+    NSMutableArray *_dsKeyArray;
 }
 
 
-@property(nonatomic,assign,readwrite) IBOutlet UILabel *ui_tid;
+@property(nonatomic,retain,readwrite) IBOutlet UILabel *ui_tid;
 @property(nonatomic,retain,readwrite) IBOutlet UILabel *ui_tName;
 @property(nonatomic,retain,readwrite) IBOutlet UIImageView *ui_tPicAddr;
 @property(nonatomic,retain,readwrite) IBOutlet UIButton *ui_a1;
@@ -31,6 +41,8 @@
 @property(nonatomic,retain,readwrite) IBOutlet UILabel *ui_tdesc;
 @property(nonatomic,retain,readwrite) IBOutlet UILabel *ui_tzid;
 @property(nonatomic,retain,readwrite) IBOutlet UILabel *ui_ttid;
+
+@property(nonatomic,assign,readwrite)  int typeID;
 
 
 - (id)initWithPattern:(MyPatternModel)myPattern;
