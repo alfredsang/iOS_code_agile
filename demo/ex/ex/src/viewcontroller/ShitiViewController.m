@@ -39,7 +39,6 @@
 }
 
 -(void)dealloc{
-    [ui_hintView release];
     [ui_tid release];
     [ui_tName release];
     [ui_tPicAddr release];
@@ -84,7 +83,9 @@
 - (void)viewDidLoad
 {
     
-    [self createHintView];
+    hintView = [[NoteInfoView  alloc] initWithFrame:CGRectMake(0, -120, 320, 120)];
+    [self.view addSubview:hintView];
+    
     _currentTid = 1;
     [self getShiti];
     
@@ -95,11 +96,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
 }
-
-- (void)createHintView{
-    self.ui_hintView = [[UIView alloc] initWithFrame:CGRectMake(10, 40, 300, 155)];
-    [self.view addSubview:self.ui_hintView];
-}
+ 
 
 #pragma mark - swipe事件
 /**
@@ -283,15 +280,33 @@
         return;
     }
    
-    hintView = [[InfoView  alloc] initWithFrame:CGRectMake(0, 0, 320, 100)];
-  
-    hintView.iconName = @"weibo_location_selected";
-    hintView.showContentString = tip;
-    hintView.showTitleString = @"真题解读";
+//    hintView.iconName = @"weibo_location_selected";
+//    hintView.showContentString = tip;
+//    hintView.showTitleString = @"真题解读";
+
+    [ NSObject cancelPreviousPerformRequestsWithTarget:@selector(d)];
+    [hintView setNoteInfo:@"真题解读" content:tip iconName:@"weibo_location_selected"];
+      
+        [UIView animateWithDuration:1 delay:0.2 options:UIViewAnimationOptionCurveEaseOut animations:^{
+            CGRect f = self.view.frame;
+            f.origin.y = 120;
+            self.view.frame = f;
+        } completion:^(BOOL finished) {
+            [self performSelector:@selector(d) withObject:nil afterDelay:2];
+        }];
     
-    [hintView show];
 }
+
+-(void)d{
  
+    [UIView animateWithDuration:1 delay:0.2 options:UIViewAnimationOptionAutoreverse animations:^{
+        
+    } completion:^(BOOL finished) {
+        CGRect f = self.view.frame;
+        f.origin.y = 0;
+        self.view.frame = f;
+    }];
+}
 #pragma mark - public methods implemetions
 
 -(void)jumpTo:(NSNumber *)tPageNumber{
@@ -426,8 +441,6 @@
 #pragma mark - shiti methods implemetions
 
 - (void)getShiti{
-   
-    
     
     switch (_myPattern) {
         case PatternModel_Seq:
@@ -447,15 +460,10 @@
         
     }else {
 
-        if (hintView) {
-//            hintView = [DemoHintView  otherHintView];
-//            // Overwrites the pages titles
-//            hintView.hintID = kHintID_Home;
-//            [hintView addPageWithTitle:@"试题解读 Tips" text:tip];
-//            [hintView showInView:self.ui_hintView orientation:kHintViewOrientationBottom duration:2.0];
+        [hintView setNoteInfo:@"真题解读" content:tip iconName:@"weibo_location_selected"];
+        
+        
 
-        }
-    
     }
     
    
@@ -500,5 +508,13 @@
     
 }
 
+#pragma mark - noteinfodelegate
 
+-(void)whenNoteInfoViewDismiss{
+    [UIView animateWithDuration:1 animations:^{
+        CGRect f = self.view.frame;
+        f.origin.y = -120;
+        self.view.frame = f;
+    }];
+}
 @end

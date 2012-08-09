@@ -11,11 +11,11 @@
 #import "DM_Shiti.h"
 #import <QuartzCore/QuartzCore.h>
 #import <QuartzCore/QuartzCore.h>
-#import "DemoHintView.h"
-#import "InfoView.h" 
+
+#import "NoteInfoView.h"
 
 
-@interface ShitiViewController : UIViewController{
+@interface ShitiViewController : UIViewController <NoteInfoViewDelegate>{
     /**
      * 当前id
      */
@@ -29,7 +29,7 @@
     
     NSMutableArray *_dsKeyArray;
     
-    InfoView* hintView;
+    NoteInfoView* hintView;
 }
 
 @property(nonatomic,retain,readwrite) IBOutlet UIView *ui_hintView;

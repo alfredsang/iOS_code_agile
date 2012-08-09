@@ -37,24 +37,30 @@
 }
 
 -(void)show{
+    [_hintView removeFromSuperview];
+    _hintView.delegate = self;
+    _hintView.dataSource = self;
+    [self addSubview:_hintView];
+
     [_hintView show];
 }
 
 
 -(void) show:(NSTimeInterval)time{
+    [_hintView removeFromSuperview];
+    _hintView.delegate = self;
+    _hintView.dataSource = self;
+    [self addSubview:_hintView];
     [_hintView show:time];
 }
 
 
 -(void) dismiss{
     [_hintView dismiss];
+    _hintView.delegate = nil;
+    _hintView.dataSource = nil;
 };
 
--(void)setShowContentString:(NSString *)_showContentString {
-    self.showContentString = [_showContentString copy];
-    _hintView.delegate = self;
-    _hintView.dataSource = self;
-}
 
 /*
 // Only override drawRect: if you perform custom drawing.
@@ -80,7 +86,7 @@
     return [showTitleString length]>0?showTitleString:@"";
 }
 -(UIImage*) titleIconForPage:(NSUInteger)page hintView:(TBHintView*)hintView{
-    return [UIImage imageNamed:[showContentString length]>0?showContentString:@""];
+    return [UIImage imageNamed:[iconName length]>0?iconName:@""];
 }
 
 -(NSString*) textForPage:(NSUInteger)page hintView:(TBHintView*)hintView{
@@ -92,9 +98,9 @@
 -(void) dismissedHintView:(TBHintView*)hintView{
     
 }
--(CGFloat) heightForHintView:(TBHintView*)hintView{
-    
-}
+//-(CGFloat) heightForHintView:(TBHintView*)hintView{
+//    return 100.0f;
+//}
 
 -(void)dealloc{
     [showTitleString release];
@@ -103,4 +109,12 @@
     [iconName release];
     [super dealloc];
 }
+
+#pragma mark - UIResponder 
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
+    [_hintView removeFromSuperview];
+//    [self removeFromSuperview];
+    [_hintView dismiss];
+}
+
 @end
