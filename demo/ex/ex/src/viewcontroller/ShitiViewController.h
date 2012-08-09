@@ -11,7 +11,9 @@
 #import "DM_Shiti.h"
 #import <QuartzCore/QuartzCore.h>
 #import <QuartzCore/QuartzCore.h>
- 
+#import "DemoHintView.h"
+#import "InfoView.h" 
+
 
 @interface ShitiViewController : UIViewController{
     /**
@@ -26,9 +28,11 @@
     int _dsId;
     
     NSMutableArray *_dsKeyArray;
+    
+    InfoView* hintView;
 }
 
-
+@property(nonatomic,retain,readwrite) IBOutlet UIView *ui_hintView;
 @property(nonatomic,retain,readwrite) IBOutlet UILabel *ui_tid;
 @property(nonatomic,retain,readwrite) IBOutlet UILabel *ui_tName;
 @property(nonatomic,retain,readwrite) IBOutlet UIImageView *ui_tPicAddr;

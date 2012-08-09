@@ -631,6 +631,13 @@
 		A6271C6315D111E800BA03B9 /* desc.txt in Resources */ = {isa = PBXBuildFile; fileRef = A62719F815D111E700BA03B9 /* desc.txt */; };
 		A6271C6415D111E800BA03B9 /* 隐私协议.txt in Resources */ = {isa = PBXBuildFile; fileRef = A62719F915D111E700BA03B9 /* 隐私协议.txt */; };
 		A6271C7615D279C500BA03B9 /* RandomUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = A6271C7515D279C500BA03B9 /* RandomUtils.m */; };
+		A6271C8015D3A10200BA03B9 /* SNPopupView+UsingPrivateMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = A6271C7D15D3A10200BA03B9 /* SNPopupView+UsingPrivateMethod.m */; };
+		A6271C8115D3A10200BA03B9 /* SNPopupView.m in Sources */ = {isa = PBXBuildFile; fileRef = A6271C7F15D3A10200BA03B9 /* SNPopupView.m */; };
+		A6271C8915D3A9B600BA03B9 /* SEAnimationFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = A6271C8415D3A9B600BA03B9 /* SEAnimationFactory.m */; };
+		A6271C8A15D3A9B600BA03B9 /* TBHintView.m in Sources */ = {isa = PBXBuildFile; fileRef = A6271C8615D3A9B600BA03B9 /* TBHintView.m */; };
+		A6271C8B15D3A9B600BA03B9 /* UIView+SEAnimations.m in Sources */ = {isa = PBXBuildFile; fileRef = A6271C8815D3A9B600BA03B9 /* UIView+SEAnimations.m */; };
+		A6271C8F15D3AB6D00BA03B9 /* DemoHintView.m in Sources */ = {isa = PBXBuildFile; fileRef = A6271C8E15D3AB6D00BA03B9 /* DemoHintView.m */; };
+		A6271C9215D3C5B000BA03B9 /* InfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = A6271C9115D3C5B000BA03B9 /* InfoView.m */; };
 		A639A8AB15CBAA15007063E6 /* ui_bg_blue.png in Resources */ = {isa = PBXBuildFile; fileRef = A639A8AA15CBAA15007063E6 /* ui_bg_blue.png */; };
 		A639A8AE15CBB8A6007063E6 /* ui_summary_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = A639A8AD15CBB8A6007063E6 /* ui_summary_bg.png */; };
 		A639A8B015CBB99B007063E6 /* start.png in Resources */ = {isa = PBXBuildFile; fileRef = A639A8AF15CBB99B007063E6 /* start.png */; };
@@ -1681,6 +1688,20 @@
 		A62719F915D111E700BA03B9 /* 隐私协议.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "隐私协议.txt"; sourceTree = "<group>"; };
 		A6271C7415D279C500BA03B9 /* RandomUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RandomUtils.h; sourceTree = "<group>"; };
 		A6271C7515D279C500BA03B9 /* RandomUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RandomUtils.m; sourceTree = "<group>"; };
+		A6271C7C15D3A10200BA03B9 /* SNPopupView+UsingPrivateMethod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SNPopupView+UsingPrivateMethod.h"; sourceTree = "<group>"; };
+		A6271C7D15D3A10200BA03B9 /* SNPopupView+UsingPrivateMethod.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SNPopupView+UsingPrivateMethod.m"; sourceTree = "<group>"; };
+		A6271C7E15D3A10200BA03B9 /* SNPopupView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SNPopupView.h; sourceTree = "<group>"; };
+		A6271C7F15D3A10200BA03B9 /* SNPopupView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNPopupView.m; sourceTree = "<group>"; };
+		A6271C8315D3A9B600BA03B9 /* SEAnimationFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SEAnimationFactory.h; sourceTree = "<group>"; };
+		A6271C8415D3A9B600BA03B9 /* SEAnimationFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SEAnimationFactory.m; sourceTree = "<group>"; };
+		A6271C8515D3A9B600BA03B9 /* TBHintView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBHintView.h; sourceTree = "<group>"; };
+		A6271C8615D3A9B600BA03B9 /* TBHintView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBHintView.m; sourceTree = "<group>"; };
+		A6271C8715D3A9B600BA03B9 /* UIView+SEAnimations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+SEAnimations.h"; sourceTree = "<group>"; };
+		A6271C8815D3A9B600BA03B9 /* UIView+SEAnimations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+SEAnimations.m"; sourceTree = "<group>"; };
+		A6271C8D15D3AB6D00BA03B9 /* DemoHintView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoHintView.h; sourceTree = "<group>"; };
+		A6271C8E15D3AB6D00BA03B9 /* DemoHintView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoHintView.m; sourceTree = "<group>"; };
+		A6271C9015D3C5B000BA03B9 /* InfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoView.h; sourceTree = "<group>"; };
+		A6271C9115D3C5B000BA03B9 /* InfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoView.m; sourceTree = "<group>"; };
 		A639A8AA15CBAA15007063E6 /* ui_bg_blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ui_bg_blue.png; sourceTree = "<group>"; };
 		A639A8AD15CBB8A6007063E6 /* ui_summary_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ui_summary_bg.png; sourceTree = "<group>"; };
 		A639A8AF15CBB99B007063E6 /* start.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = start.png; sourceTree = "<group>"; };
@@ -2948,6 +2969,40 @@
 			path = utils;
 			sourceTree = "<group>";
 		};
+		A6271C7B15D3A10200BA03B9 /* popview */ = {
+			isa = PBXGroup;
+			children = (
+				A6271C7C15D3A10200BA03B9 /* SNPopupView+UsingPrivateMethod.h */,
+				A6271C7D15D3A10200BA03B9 /* SNPopupView+UsingPrivateMethod.m */,
+				A6271C7E15D3A10200BA03B9 /* SNPopupView.h */,
+				A6271C7F15D3A10200BA03B9 /* SNPopupView.m */,
+			);
+			path = popview;
+			sourceTree = "<group>";
+		};
+		A6271C8215D3A9B500BA03B9 /* TBHintView */ = {
+			isa = PBXGroup;
+			children = (
+				A6271C8C15D3AB6D00BA03B9 /* utils */,
+				A6271C8315D3A9B600BA03B9 /* SEAnimationFactory.h */,
+				A6271C8415D3A9B600BA03B9 /* SEAnimationFactory.m */,
+				A6271C8515D3A9B600BA03B9 /* TBHintView.h */,
+				A6271C8615D3A9B600BA03B9 /* TBHintView.m */,
+				A6271C8715D3A9B600BA03B9 /* UIView+SEAnimations.h */,
+				A6271C8815D3A9B600BA03B9 /* UIView+SEAnimations.m */,
+			);
+			path = TBHintView;
+			sourceTree = "<group>";
+		};
+		A6271C8C15D3AB6D00BA03B9 /* utils */ = {
+			isa = PBXGroup;
+			children = (
+				A6271C8D15D3AB6D00BA03B9 /* DemoHintView.h */,
+				A6271C8E15D3AB6D00BA03B9 /* DemoHintView.m */,
+			);
+			path = utils;
+			sourceTree = "<group>";
+		};
 		A653D03C15CB739900FA6B25 /* image */ = {
 			isa = PBXGroup;
 			children = (
@@ -3025,6 +3080,8 @@
 		A6980A4315CA217C00DF5BFF /* lib */ = {
 			isa = PBXGroup;
 			children = (
+				A6271C8215D3A9B500BA03B9 /* TBHintView */,
+				A6271C7B15D3A10200BA03B9 /* popview */,
 				A6980AFB15CA25F000DF5BFF /* fmdb */,
 				A6980A4415CA217C00DF5BFF /* AFNetworking */,
 				A6980A5A15CA217C00DF5BFF /* AFURLCache.h */,
@@ -3205,6 +3262,8 @@
 		A6980B3015CA313500DF5BFF /* view */ = {
 			isa = PBXGroup;
 			children = (
+				A6271C9015D3C5B000BA03B9 /* InfoView.h */,
+				A6271C9115D3C5B000BA03B9 /* InfoView.m */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -4679,6 +4738,13 @@
 				A653D04915CB817700FA6B25 /* SummaryViewController.m in Sources */,
 				AAE0D38015D14D7D0046346F /* PatternModel.m in Sources */,
 				A6271C7615D279C500BA03B9 /* RandomUtils.m in Sources */,
+				A6271C8015D3A10200BA03B9 /* SNPopupView+UsingPrivateMethod.m in Sources */,
+				A6271C8115D3A10200BA03B9 /* SNPopupView.m in Sources */,
+				A6271C8915D3A9B600BA03B9 /* SEAnimationFactory.m in Sources */,
+				A6271C8A15D3A9B600BA03B9 /* TBHintView.m in Sources */,
+				A6271C8B15D3A9B600BA03B9 /* UIView+SEAnimations.m in Sources */,
+				A6271C8F15D3AB6D00BA03B9 /* DemoHintView.m in Sources */,
+				A6271C9215D3C5B000BA03B9 /* InfoView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

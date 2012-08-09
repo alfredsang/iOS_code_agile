@@ -14,6 +14,7 @@
 
 @implementation ShitiViewController
 
+@synthesize ui_hintView;
 @synthesize ui_tid;
 @synthesize ui_tName;
 @synthesize ui_tPicAddr;
@@ -35,6 +36,25 @@
         [self processWithPattern];
     }
     return self;
+}
+
+-(void)dealloc{
+    [ui_hintView release];
+    [ui_tid release];
+    [ui_tName release];
+    [ui_tPicAddr release];
+    [ui_a1 release];
+    [ui_a2 release];
+    [ui_a3 release];
+    [ui_a4 release];
+    [ui_a5 release];
+    [ui_tanswer release];
+    [ui_tdesc release];
+    [ui_ttid release];
+    [ui_tzid release];
+    
+    [hintView release];
+    [super dealloc];
 }
 
 - (void)processWithPattern{
@@ -63,6 +83,8 @@
 
 - (void)viewDidLoad
 {
+    
+    [self createHintView];
     _currentTid = 1;
     [self getShiti];
     
@@ -72,6 +94,11 @@
  
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+}
+
+- (void)createHintView{
+    self.ui_hintView = [[UIView alloc] initWithFrame:CGRectMake(10, 40, 300, 155)];
+    [self.view addSubview:self.ui_hintView];
 }
 
 #pragma mark - swipe事件
@@ -221,6 +248,8 @@
 
 -(IBAction)viewAnswerBtn:(UIButton *)btn{
     
+    
+    
     int mid = [_shiti.tanswer intValue];
 
     for (int i=1; i<=5; i++) {
@@ -237,13 +266,32 @@
             [sender setAlpha:0.5f];
         }
     }
-    NSString *tip = [NSString stringWithFormat:@"Tip:%@",_shiti.tdesc];
-    [SVProgressHUD showInView:self.view];
+    NSString *tip = [NSString stringWithFormat:@"%@",_shiti.tdesc];
+//    [SVProgressHUD showInView:self.view];
 //    [SVProgressHUD ]
-    [SVProgressHUD dismissWithSuccess:tip afterDelay:2.5];
+//    [SVProgressHUD dismissWithSuccess:tip afterDelay:2.5];
     
+//    popupView = [[SNPopupView alloc] initWithString:tip withFontOfSize:16];
+//    
+//    [popupView showAtPoint:CGPointMake(320/2, 480/2) inView:self.view animated:YES];
+//    [popupView addTarget:self action:@selector(didTouchPopupView:)];
+//    [popupView release];
+//    [popupView setDelegate:self];
+//    
+    
+    if ( (tip == nil) | [tip isEqualToString:@""]) {
+        return;
+    }
+   
+    hintView = [[InfoView  alloc] initWithFrame:CGRectMake(0, 0, 320, 100)];
+  
+    hintView.iconName = @"weibo_location_selected";
+    hintView.showContentString = tip;
+    hintView.showTitleString = @"真题解读";
+    
+    [hintView show];
 }
-
+ 
 #pragma mark - public methods implemetions
 
 -(void)jumpTo:(NSNumber *)tPageNumber{
@@ -378,6 +426,9 @@
 #pragma mark - shiti methods implemetions
 
 - (void)getShiti{
+   
+    
+    
     switch (_myPattern) {
         case PatternModel_Seq:
             _dsId = _currentTid;
@@ -391,6 +442,24 @@
     }
     _shiti = [[[CXDataService sharedInstance]  shiti_find_by_id:_dsId] retain];
     
+    NSString *tip = [NSString stringWithFormat:@"%@",_shiti.tdesc];
+    if ( (tip == nil) | [tip isEqualToString:@""]) {
+        
+    }else {
+
+        if (hintView) {
+//            hintView = [DemoHintView  otherHintView];
+//            // Overwrites the pages titles
+//            hintView.hintID = kHintID_Home;
+//            [hintView addPageWithTitle:@"试题解读 Tips" text:tip];
+//            [hintView showInView:self.ui_hintView orientation:kHintViewOrientationBottom duration:2.0];
+
+        }
+    
+    }
+    
+   
+
     [self setShiti:_shiti];
     NSLog(@"%@",_shiti.tName);
     NSLog(@"%@",_shiti.tanswer);
@@ -430,4 +499,6 @@
     
     
 }
+
+
 @end
