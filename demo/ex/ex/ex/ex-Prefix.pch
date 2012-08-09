@@ -17,6 +17,7 @@
 
 
 #import "CXDataService.h"
+#import "RandomUtils.h"
 
 #define ImageNamed(_pointer,_type) [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:_pointer ofType:_type] ]
 

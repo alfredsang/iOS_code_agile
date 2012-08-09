@@ -357,12 +357,14 @@
 #pragma mark - pattern callback methods implemetions
 
 - (void)p_seq{
-    _dsId = _currentTid;
+    _currentTid = 1;
+    //_dsId = _currentTid;
 }
 
 - (void)p_random{
-    _dsKeyArray = [[[CXDataService sharedInstance] shiti_find_all_key_random] retain];
-    _dsId =  [_dsKeyArray objectAtIndex:_currentTid];
+    _dsKeyArray = [[RandomUtils getRandomCollection:0 to:1000 count:100] retain];
+    NSLog(@"when in p_random functoin,_dsKeyArray = %@C",_dsKeyArray);
+    //_dsId = [[_dsKeyArray objectAtIndex:_currentTid] intValue];
 }
 
 - (void)p_chater{
@@ -376,11 +378,20 @@
 #pragma mark - shiti methods implemetions
 
 - (void)getShiti{
+    switch (_myPattern) {
+        case PatternModel_Seq:
+            _dsId = _currentTid;
+            break;
+        case PatternModel_Random:
+            _dsKeyArray = [[RandomUtils getRandomCollection:0 to:1000 count:100] retain];
+            _dsId = [[_dsKeyArray objectAtIndex:_currentTid] intValue];
+            break;
+        default:
+            break;
+    }
+    _shiti = [[[CXDataService sharedInstance]  shiti_find_by_id:_dsId] retain];
     
-    _shiti = [[[CXDataService sharedInstance]  shiti_find_by_id:_currentTid] retain];
-    
-       _dsKeyArray = [[[CXDataService sharedInstance] shiti_find_all_key_random] retain];
-    [self setShiti:_shiti];   
+    [self setShiti:_shiti];
     NSLog(@"%@",_shiti.tName);
     NSLog(@"%@",_shiti.tanswer);
 }
