@@ -1,18 +1,18 @@
 //
-//  ShitiViewController.m
+//  ExamViewController.m
 //  ex
 //
-//  Created by alfred sang on 12-8-2.
+//  Created by alfred sang on 12-8-10.
 //  Copyright (c) 2012年 __MyCompanyName__. All rights reserved.
 //
 
-#import "ShitiViewController.h"
+#import "ExamViewController.h"
 
-@interface ShitiViewController ()
+@interface ExamViewController ()
 
 @end
 
-@implementation ShitiViewController
+@implementation ExamViewController
 
 @synthesize ui_btn_tNumber;
 @synthesize ui_tName;
@@ -26,13 +26,13 @@
 @synthesize ui_tdesc;
 @synthesize ui_ttid;
 @synthesize ui_tzid;
+@synthesize ui_jindu;
 
 @synthesize typeID;
 
-- (id)initWithPattern:(MyPatternModel)myPattern{
+- (id)init{
     if (self == [super init]) {
-        _myPattern = myPattern;
-        [self processWithPattern];
+        _myPattern = PatternModel_Exam;
     }
     return self;
 }
@@ -55,27 +55,7 @@
     [super dealloc];
 }
 
-- (void)processWithPattern{
-    switch (_myPattern) {
-        case PatternModel_Seq:
-            [self p_seq];
-            break;
-        case PatternModel_Random:
-            [self p_random];
-            break;
-        case PatternModel_Chapter:
-            [self p_chater];
-            break;
-        case PatternModel_Exam:
-            [self p_exam];
-            break;
-        default:
-            break;
-    }
-}
-
 - (void)viewWillAppear:(BOOL)animated{
-    
     [super viewWillAppear:YES];
 }
 
@@ -84,7 +64,7 @@
     ui_btn_tNumber.backgroundColor = [UIColor orangeColor];
     
     
-    hintView = [[NoteInfoView  alloc] initWithFrame:CGRectMake(0, -120, 320, 120)];
+    hintView = [[CompletenessView  alloc] initWithFrame:CGRectMake(0, -120, 320, 120)];
     [self.view addSubview:hintView];
     
     _currentTid = 1;
@@ -99,7 +79,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
 }
- 
+
 
 #pragma mark - swipe事件
 /**
@@ -107,17 +87,17 @@
  */
 - (void)addGestureRecognizer{
     UISwipeGestureRecognizer *recognizer;    
-    recognizer = [[UISwipeGestureRecognizer alloc] init];    
-    [recognizer addTarget:self action:@selector(handleSwipeFromLeft:)];
-    [recognizer setDirection:UISwipeGestureRecognizerDirectionLeft];
-    [[self view] addGestureRecognizer:recognizer];    
-    [recognizer release];
-    
-    recognizer = [[UISwipeGestureRecognizer alloc] init];    
-    [recognizer addTarget:self action:@selector(handleSwipeFromRight:)];
-    [recognizer setDirection:UISwipeGestureRecognizerDirectionRight];
-    [[self view] addGestureRecognizer:recognizer];    
-    [recognizer release];
+//    recognizer = [[UISwipeGestureRecognizer alloc] init];    
+//    [recognizer addTarget:self action:@selector(handleSwipeFromLeft:)];
+//    [recognizer setDirection:UISwipeGestureRecognizerDirectionLeft];
+//    [[self view] addGestureRecognizer:recognizer];    
+//    [recognizer release];
+//    
+//    recognizer = [[UISwipeGestureRecognizer alloc] init];    
+//    [recognizer addTarget:self action:@selector(handleSwipeFromRight:)];
+//    [recognizer setDirection:UISwipeGestureRecognizerDirectionRight];
+//    [[self view] addGestureRecognizer:recognizer];    
+//    [recognizer release];
     
     recognizer = [[UISwipeGestureRecognizer alloc] init];    
     [recognizer addTarget:self action:@selector(handleSwipeFromUp:)];
@@ -132,7 +112,7 @@
     [recognizer release];
     
 }
- 
+
 /**
  * 增加上swipe事件
  */
@@ -143,7 +123,7 @@
  * 增加下swipe事件
  */
 - (void)handleSwipeFromDown:(UISwipeGestureRecognizer *)recognize{
-     [self showNoteView];
+    [self showNoteView];
 }
 /**
  * 增加左swipe事件
@@ -174,6 +154,7 @@
     [self getShiti];
     
     [self tNumberAnimation:0 andNumber:_currentTid];
+    
 }
 
 
@@ -205,23 +186,23 @@
         case 1:
             title = [NSString stringWithFormat:@"  A:%@",str];
             break;
-
+            
         case 2:
             title = [NSString stringWithFormat:@"  B:%@",str];
             break;
-
+            
         case 3:
             title = [NSString stringWithFormat:@"  C:%@",str];
             break;
-
+            
         case 4:
             title = [NSString stringWithFormat:@"  D:%@",str];
             break;
-
+            
         case 5:
             title = [NSString stringWithFormat:@"  E:%@",str];
             break;
-
+            
         default:
             break;
     }
@@ -252,24 +233,34 @@
 -(IBAction)whenClickAnswerBtn:(UIButton *)sender{
     int mid = [_shiti.tanswer intValue];
     
-    for (int i=1; i<=5; i++) {
-         if (sender.tag == mid) {
-            [sender setBackgroundColor:[UIColor greenColor]];
-            sender.titleLabel.font = [UIFont systemFontOfSize:20];
-            sender.titleLabel.textColor = [UIColor blueColor];
-            [sender setContentHorizontalAlignment:UIControlContentHorizontalAlignmentCenter];
-        }else {
-            [sender setBackgroundColor:[UIColor grayColor]];
-            [sender setEnabled:NO];
-            [sender setOpaque:YES];
-            [sender setAlpha:0.5f];
-        }
-    }
+//    for (int i=1; i<=5; i++) {
+//        if (sender.tag == mid) {
+//            [sender setBackgroundColor:[UIColor greenColor]];
+//            sender.titleLabel.font = [UIFont systemFontOfSize:20];
+//            sender.titleLabel.textColor = [UIColor blueColor];
+//            [sender setContentHorizontalAlignment:UIControlContentHorizontalAlignmentCenter];
+//        }else {
+//            [sender setBackgroundColor:[UIColor grayColor]];
+//            [sender setEnabled:NO];
+//            [sender setOpaque:YES];
+//            [sender setAlpha:0.5f];
+//        }
+//    }
+    
+    //设置选中    
+    [sender setBackgroundColor:[UIColor blueColor]];
+    [sender setEnabled:NO];
+    [sender setOpaque:YES];
+    [sender setAlpha:0.5f];
+    //存储
+    
+    //直接跳转到下一题
+    [self performSelector:@selector(right:) withObject:nil afterDelay:1];
 }
 
 -(IBAction)viewAnswerBtn:(UIButton *)btn{
     int mid = [_shiti.tanswer intValue];
-
+    
     for (int i=1; i<=5; i++) {
         UIButton* sender = (UIButton *)[self.view viewWithTag:i];
         
@@ -290,10 +281,10 @@
     if ( (tip == nil) | [tip isEqualToString:@""]) {
         return;
     }
-   
+    
     [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(dismissNoteView) object:nil];
     [hintView setNoteInfo:@"真题解读" content:tip iconName:@"weibo_location_selected"];
-      
+    
     [self showNoteView];    
 }
 
@@ -303,7 +294,7 @@
     animation.duration = kDuration;
     animation.timingFunction = UIViewAnimationCurveEaseInOut;
     animation.type = @"oglFlip";
-     
+    
     if (dirction ==1) {
         animation.subtype = kCATransitionFromLeft;
     }else {
@@ -314,9 +305,9 @@
     
 	CGFloat stringWidth = [string sizeWithFont:self.ui_btn_tNumber.titleLabel.font].width+14;
 	
- 
-//	self.ui_btn_tNumber.bounds = CGRectMake(0, 0, hudWidth, 100);
-        
+    
+    //	self.ui_btn_tNumber.bounds = CGRectMake(0, 0, hudWidth, 100);
+    
     CGRect f = self.ui_btn_tNumber.frame;
     f.size.width = stringWidth;
     f.size.height = stringWidth;
@@ -332,8 +323,19 @@
     
     
     [self.ui_btn_tNumber setTitle:string  forState:UIControlStateNormal];
-
+    
+    
+    double a = ceil(num % 50) ;
     [[self.ui_btn_tNumber layer] addAnimation:animation forKey:@"animation_btn"];
+    
+    [UIView animateWithDuration:1 delay:0.2 options:UIViewAnimationOptionCurveLinear animations:^{
+        CGRect f = self.ui_jindu.frame;
+        f.origin.x = 94 + a*2;
+        self.ui_jindu.frame = f;
+        [self.ui_jindu setTitle:[NSString stringWithFormat:@"%d",num] forState:UIControlStateNormal];
+    } completion:^(BOOL finished) {
+         
+    }];
 }
 #pragma mark - about NoteView 
 - (void)showNoteView{
@@ -357,7 +359,7 @@
     }];
 }
 
- 
+
 #pragma mark - public methods implemetions
 
 -(void)jumpTo:(NSNumber *)tPageNumber{
@@ -423,11 +425,11 @@
         case 1:
             animation.subtype = kCATransitionFromRight;
             break;
- 
+            
         default:
             break;
     }
- 
+    
     [[self.view layer] addAnimation:animation forKey:@"animation"];
 }
 
@@ -457,10 +459,10 @@
             break;
     }
     
-//    NSUInteger green = [[self.view subviews] indexOfObject:self.greenView];
-//    NSUInteger blue = [[self.view subviews] indexOfObject:self.blueView];
-//    [self.view exchangeSubviewAtIndex:green withSubviewAtIndex:blue];
-//    
+    //    NSUInteger green = [[self.view subviews] indexOfObject:self.greenView];
+    //    NSUInteger blue = [[self.view subviews] indexOfObject:self.blueView];
+    //    [self.view exchangeSubviewAtIndex:green withSubviewAtIndex:blue];
+    //    
     [UIView setAnimationDelegate:self];
     // 动画完毕后调用某个方法
     //[UIView setAnimationDidStopSelector:@selector(animationFinished:)];
@@ -470,40 +472,25 @@
 
 #pragma mark - pattern callback methods implemetions
 
-- (void)p_seq{
-    _currentTid = 1;
-    //_dsId = _currentTid;
-}
-
-- (void)p_random{
-    _dsKeyArray = [[RandomUtils getRandomCollection:0 to:1000 count:1000] retain];
-    NSLog(@"when in p_random functoin,_dsKeyArray = %@C",_dsKeyArray);
-    //_dsId = [[_dsKeyArray objectAtIndex:_currentTid] intValue];
-}
-
-- (void)p_chater{
-    
-}
-
+ 
 /**
  *随机一百道题 
  *时间45分钟
  *90分+通过
  *一个题目一分
  */
-- (void)p_exam{
-    _dsKeyArray = [[RandomUtils getRandomCollection:0 to:1000 count:100] retain];
-}
-
 #pragma mark - shiti methods implemetions
 
 - (void)getShiti{
+    
+    if (_currentTid==100) {
+        [SVProgressHUD showInView:self.view];
+        [SVProgressHUD dismissWithSuccess:@"所有题目已经答完" afterDelay:2];
+        return;
+    }
     switch (_myPattern) {
-        case PatternModel_Seq:
-            _dsId = _currentTid;
-            break;
-        case PatternModel_Random:
-            _dsKeyArray = [[RandomUtils getRandomCollection:0 to:1000 count:100] retain];
+        case PatternModel_Exam:
+            _dsKeyArray = [[RandomUtils getRandomCollection:0 to:1000 count:101] retain];
             _dsId = [[_dsKeyArray objectAtIndex:_currentTid] intValue];
             break;
         default:
@@ -515,15 +502,15 @@
     if ( (tip == nil) | [tip isEqualToString:@""]) {
         
     }else {
-
+        
         [hintView setNoteInfo:@"真题解读" content:tip iconName:@"weibo_location_selected"];
         
         
-
+        
     }
     
-   
-
+    
+    
     [self setShiti:_shiti];
     NSLog(@"%@",_shiti.tName);
     NSLog(@"%@",_shiti.tanswer);

@@ -1,8 +1,8 @@
 //
-//  ShitiViewController.h
+//  ExamViewController.h
 //  ex
 //
-//  Created by alfred sang on 12-8-2.
+//  Created by alfred sang on 12-8-10.
 //  Copyright (c) 2012年 __MyCompanyName__. All rights reserved.
 //
 
@@ -12,10 +12,9 @@
 #import <QuartzCore/QuartzCore.h>
 #import <QuartzCore/QuartzCore.h>
 
-#import "NoteInfoView.h"
+#import "CompletenessView.h"
 
-
-@interface ShitiViewController : UIViewController <NoteInfoViewDelegate>{
+@interface ExamViewController : UIViewController {
     /**
      * 当前id
      */
@@ -26,10 +25,10 @@
      * 当前数据源的id
      */
     int _dsId;
-    
+
     NSMutableArray *_dsKeyArray;
-    
-    NoteInfoView* hintView;
+
+    CompletenessView* hintView;
 }
 
 /** 
@@ -48,11 +47,10 @@
 @property(nonatomic,retain,readwrite) IBOutlet UILabel *ui_tzid;
 @property(nonatomic,retain,readwrite) IBOutlet UILabel *ui_ttid;
 
+@property(nonatomic,retain,readwrite) IBOutlet UIButton *ui_jindu;
+
 @property(nonatomic,assign,readwrite)  int typeID;
-
-
-- (id)initWithPattern:(MyPatternModel)myPattern;
-
+ 
 - (void)handleSwipeFromLeft:(UISwipeGestureRecognizer *)recognize;
 
 -(void)jumpTo:(NSNumber *)tPageNumber;
@@ -65,6 +63,6 @@
  * 查看答案
  */
 -(IBAction)viewAnswerBtn:(UIButton *)sender;
- 
+
 
 @end
