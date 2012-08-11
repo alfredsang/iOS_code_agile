@@ -47,6 +47,8 @@
 @property(nonatomic,retain,readwrite) IBOutlet UILabel *ui_tzid;
 @property(nonatomic,retain,readwrite) IBOutlet UILabel *ui_ttid;
 
+@property(nonatomic,retain,readwrite) IBOutlet UILabel *ui_ttime;
+
 @property(nonatomic,retain,readwrite) IBOutlet UIButton *ui_jindu;
 
 @property(nonatomic,assign,readwrite)  int typeID;

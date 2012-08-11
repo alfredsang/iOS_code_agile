@@ -13,7 +13,7 @@
 @end
 
 @implementation ExamViewController
-
+@synthesize ui_ttime;
 @synthesize ui_btn_tNumber;
 @synthesize ui_tName;
 @synthesize ui_tPicAddr;
@@ -61,6 +61,10 @@
 
 - (void)viewDidLoad
 {
+    
+     [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(timerFireMethod:) userInfo:nil repeats:YES];
+    
+    
     ui_btn_tNumber.backgroundColor = [UIColor orangeColor];
     
     
@@ -558,5 +562,33 @@
         f.origin.y = -120;
         self.view.frame = f;
     }];
+}
+
+
+- (void)timerFireMethod:(NSTimer*)theTimer
+{
+    //NSDateFormatter *dateformatter = [[[NSDateFormatter alloc]init] autorelease];//定义NSDateFormatter用来显示格式
+    //[dateformatter setDateFormat:@"yyyy MM dd hh mm ss"];//设定格式
+    NSCalendar *cal = [NSCalendar currentCalendar];//定义一个NSCalendar对象
+    NSDateComponents *shibo = [[NSDateComponents alloc] init];//初始化目标时间（好像是世博会的日期）
+    [shibo setYear:2010];
+    [shibo setMonth:5];
+    [shibo setDay:1];
+    [shibo setHour:8];
+    [shibo setMinute:0];
+    [shibo setSecond:0];
+    
+    NSDate *todate = [cal dateFromComponents:shibo];//把目标时间装载入date
+    [shibo release];
+    // NSString *ssss = [dateformatter stringFromDate:dd];
+    // NSLog([NSString stringWithFormat:@"shibo shi:%@",ssss]);
+    
+    NSDate *today = [NSDate date];//得到当前时间
+    // NSString *sss = [dateformatter stringFromDate:today];
+    // NSLog([NSString stringWithFormat:@"xianzai shi:%@",sss]);
+    //用来得到具体的时差
+    unsigned int unitFlags = NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit | NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit;
+    NSDateComponents *d = [cal components:unitFlags fromDate:today toDate:todate options:0];
+    ui_ttime.text = [NSString stringWithFormat:@"%d年%d月%d日%d时%d分%d秒",[d year],[d month], [d day], [d hour], [d minute], [d second]];
 }
 @end
