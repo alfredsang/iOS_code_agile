@@ -99,6 +99,36 @@
 }
 
 
+- (NSString *)getStringWithABCD:(NSString *)str withIndex:(int)i{
+    NSString *title;
+    
+    switch (i) {
+        case 1:
+            title = [NSString stringWithFormat:@"  A : %@",str];
+            break;
+            
+        case 2:
+            title = [NSString stringWithFormat:@"  B : %@",str];
+            break;
+            
+        case 3:
+            title = [NSString stringWithFormat:@"  C : %@",str];
+            break;
+            
+        case 4:
+            title = [NSString stringWithFormat:@"  D : %@",str];
+            break;
+            
+        case 5:
+            title = [NSString stringWithFormat:@"  E : %@",str];
+            break;
+            
+        default:
+            break;
+    }
+    return title;
+}
+
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -123,6 +153,7 @@
 //    }
 //    
     //直接跳转到下一题
+     [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(right) object:nil];
     [self performSelector:@selector(right:) withObject:nil afterDelay:2];
     cell.accessoryType = UITableViewCellAccessoryCheckmark;
 }
@@ -662,22 +693,23 @@
     
     
     if (_shiti.a1.length>0) {
-        [items addObject:_shiti.a1];
+        [items addObject:[self getStringWithABCD:_shiti.a1 withIndex:1]];
     }
     
     if (_shiti.a2.length>0) {
-        [items addObject:_shiti.a2];
+        [items addObject:[self getStringWithABCD:_shiti.a2 withIndex:2]];   
     }
     
     if (_shiti.a3.length>0) {
-        [items addObject:_shiti.a3];
+        [items addObject:[self getStringWithABCD:_shiti.a3 withIndex:3]];
     }
     if (_shiti.a4.length>0) {
-        [items addObject:_shiti.a4];
+        [items addObject:[self getStringWithABCD:_shiti.a4 withIndex:4]];
     }
     if (_shiti.a5.length>0) {
-        [items addObject:_shiti.a5];
+        [items addObject:[self getStringWithABCD:_shiti.a5 withIndex:5]];
     }
+    
     
     
     [_tableView reloadData];
