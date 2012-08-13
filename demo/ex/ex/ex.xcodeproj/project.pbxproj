@@ -738,6 +738,8 @@
 		A6980B3515CA315D00DF5BFF /* ShitiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6980B3315CA315D00DF5BFF /* ShitiViewController.m */; };
 		A6980B3A15CA31B800DF5BFF /* ShitiViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6980B3915CA31B800DF5BFF /* ShitiViewController.xib */; };
 		AA20555315D46EC000575BF9 /* NoteInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = AA20555215D46EC000575BF9 /* NoteInfoView.m */; };
+		AABA57CE15D9535300DF1AE0 /* articleView_bottom_bg1.png in Resources */ = {isa = PBXBuildFile; fileRef = AABA57CD15D9535300DF1AE0 /* articleView_bottom_bg1.png */; };
+		AABA57D415D954D400DF1AE0 /* BottomBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = AABA57D315D954D400DF1AE0 /* BottomBarView.m */; };
 		AAE0D38015D14D7D0046346F /* PatternModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE0D37F15D14D7D0046346F /* PatternModel.m */; };
 		AAE0D4C815D1691D0046346F /* acccount_check_box_off_gray.png in Resources */ = {isa = PBXBuildFile; fileRef = AAE0D38215D1691B0046346F /* acccount_check_box_off_gray.png */; };
 		AAE0D4C915D1691D0046346F /* acccount_check_box_off_gray@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AAE0D38315D1691B0046346F /* acccount_check_box_off_gray@2x.png */; };
@@ -1865,6 +1867,9 @@
 		A6980B3915CA31B800DF5BFF /* ShitiViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShitiViewController.xib; sourceTree = "<group>"; };
 		AA20555115D46EC000575BF9 /* NoteInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoteInfoView.h; sourceTree = "<group>"; };
 		AA20555215D46EC000575BF9 /* NoteInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoteInfoView.m; sourceTree = "<group>"; };
+		AABA57CD15D9535300DF1AE0 /* articleView_bottom_bg1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = articleView_bottom_bg1.png; path = src/resource/image/no320/articleView_bottom_bg1.png; sourceTree = SOURCE_ROOT; };
+		AABA57D215D954D400DF1AE0 /* BottomBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BottomBarView.h; sourceTree = "<group>"; };
+		AABA57D315D954D400DF1AE0 /* BottomBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BottomBarView.m; sourceTree = "<group>"; };
 		AAE0D37E15D14D7D0046346F /* PatternModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PatternModel.h; sourceTree = "<group>"; };
 		AAE0D37F15D14D7D0046346F /* PatternModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PatternModel.m; sourceTree = "<group>"; };
 		AAE0D38215D1691B0046346F /* acccount_check_box_off_gray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = acccount_check_box_off_gray.png; sourceTree = "<group>"; };
@@ -3022,6 +3027,7 @@
 		A653D03C15CB739900FA6B25 /* image */ = {
 			isa = PBXGroup;
 			children = (
+				AABA57CD15D9535300DF1AE0 /* articleView_bottom_bg1.png */,
 				A6271E4C15D8AA0A00BA03B9 /* page_bg.png */,
 				AAE0D38115D1691B0046346F /* no320 */,
 				A639A8AF15CBB99B007063E6 /* start.png */,
@@ -3285,6 +3291,8 @@
 				AA20555215D46EC000575BF9 /* NoteInfoView.m */,
 				A6271CAE15D4FB8600BA03B9 /* CompletenessView.h */,
 				A6271CAF15D4FB8600BA03B9 /* CompletenessView.m */,
+				AABA57D215D954D400DF1AE0 /* BottomBarView.h */,
+				AABA57D315D954D400DF1AE0 /* BottomBarView.m */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -4705,6 +4713,7 @@
 				A6271C9E15D4B7A900BA03B9 /* ExamViewController.xib in Resources */,
 				A6271E4D15D8AA0A00BA03B9 /* page_bg.png in Resources */,
 				A6271E5315D8AE9100BA03B9 /* ShitiAnswerTableViewControllerViewController.xib in Resources */,
+				AABA57CE15D9535300DF1AE0 /* articleView_bottom_bg1.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -4777,6 +4786,7 @@
 				A6271C9B15D4B79200BA03B9 /* ExamViewController.m in Sources */,
 				A6271CB015D4FB8600BA03B9 /* CompletenessView.m in Sources */,
 				A6271E5215D8AE9100BA03B9 /* ShitiAnswerTableViewControllerViewController.m in Sources */,
+				AABA57D415D954D400DF1AE0 /* BottomBarView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -4858,12 +4868,12 @@
 		A6980A4115CA214E00DF5BFF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer: Changge Chen (53BM329KF8)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Xiaowei Liang (RP3527U63K)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ex/ex-Prefix.pch";
 				INFOPLIST_FILE = "ex/ex-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "ABC7E677-20A5-408F-BDCD-B849F64BC2FC";
+				PROVISIONING_PROFILE = "FA2DFEE8-6505-426B-A652-ECFEA2E716C1";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;

@@ -13,7 +13,7 @@
 @end
 
 @implementation ShitiViewController
-
+@synthesize ui_bgPic;
 @synthesize ui_btn_tNumber;
 @synthesize ui_tName;
 @synthesize ui_tPicAddr;
@@ -114,8 +114,9 @@
 //    ShitiAnswerTableViewControllerViewController *s = [[ShitiAnswerTableViewControllerViewController alloc] initView:nil];
 //    s.view.frame = CGRectMake(10, 180, 300, 195);
 //    
+     
     
-    
+
 //    [self.view addSubview:s.view];
     
 }
@@ -249,11 +250,72 @@
     [[self view] addGestureRecognizer:recognizer];    
     [recognizer release];
     
-    recognizer = [[UISwipeGestureRecognizer alloc] init];    
+    recognizer = [[UISwipeGestureRecognizer alloc] init];
     [recognizer addTarget:self action:@selector(handleSwipeFromDown:)];
     [recognizer setDirection:UISwipeGestureRecognizerDirectionDown];
     [[self view] addGestureRecognizer:recognizer];    
     [recognizer release];
+    
+    UITapGestureRecognizer *tg = [[UITapGestureRecognizer alloc] init];
+    [tg addTarget:self action:@selector(tap:)];
+    tg.numberOfTapsRequired=1;
+    tg.numberOfTouchesRequired =1;
+    [[self ui_tName] addGestureRecognizer:tg];
+    [tg release];
+    
+}
+-(void)tap:(UITapGestureRecognizer *)g{
+    c++;
+    if (c%2 ==0) {
+        [UIView animateWithDuration:1 delay:0.2 options:UIViewAnimationCurveEaseInOut animations:^{
+            CGRect f = [self.view viewWithTag:10001].frame;
+            f.origin.y-=40;
+            [self.view viewWithTag:10001].frame = f;
+            
+            f = [self.view viewWithTag:10002].frame;
+            f.origin.y-=40;
+            [self.view viewWithTag:10002].frame = f;
+            
+           
+            f = [self.view viewWithTag:10003].frame;
+            f.origin.y-=40;
+            [self.view viewWithTag:10003].frame = f;
+            
+            f = [self.view viewWithTag:10004].frame;
+            f.origin.y-=40;
+            [self.view viewWithTag:10004].frame = f;
+            
+            f = [self.view viewWithTag:10005].frame;
+            f.origin.y-=40;
+            [self.view viewWithTag:10005].frame = f;
+            
+        } completion:^(BOOL finished) {
+             
+        }];
+        
+    }else{
+        
+        CGRect f = [self.view viewWithTag:10001].frame;
+        f.origin.y+=40;
+        [self.view viewWithTag:10001].frame = f;
+        
+        f = [self.view viewWithTag:10002].frame;
+        f.origin.y+=40;
+        [self.view viewWithTag:10002].frame = f;
+        
+        
+        f = [self.view viewWithTag:10003].frame;
+        f.origin.y+=40;
+        [self.view viewWithTag:10003].frame = f;
+        
+        f = [self.view viewWithTag:10004].frame;
+        f.origin.y+=40;
+        [self.view viewWithTag:10004].frame = f;
+        
+        f = [self.view viewWithTag:10005].frame;
+        f.origin.y+=40;
+        [self.view viewWithTag:10005].frame = f;
+    }
     
 }
  
@@ -499,17 +561,31 @@
     } completion:^(BOOL finished) {
         [self performSelector:@selector(dismissNoteView) withObject:nil afterDelay:10];
     }];
+   CGRect g =  self.ui_bgPic.frame;
+    g.origin.y = -120;
+    g.size.height=480.0f+120.0f;
+    self.ui_bgPic.frame = g;
+    
+    CGRect f = hintView.frame;
+    f.size.width = 314;
+    hintView.frame = f;
+    
 }
 
 
 - (void)dismissNoteView{
     [UIView animateWithDuration:1 delay:0.2 options:UIViewAnimationOptionAutoreverse animations:^{
-        
+        CGRect g =  self.ui_bgPic.frame;
+        g.origin.y = 0;
+        g.size.height=480.0f;
+        self.ui_bgPic.frame = g;
     } completion:^(BOOL finished) {
         CGRect f = self.view.frame;
         f.origin.y = 0;
         self.view.frame = f;
     }];
+    
+  
 }
 
  

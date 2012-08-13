@@ -7,19 +7,6 @@
          shouldBeEnabled = "Yes"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "ex/RootViewController.m"
-         timestampString = "366038908.566811"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "44"
-         endingLineNumber = "44"
-         landmarkName = "-showShitiView:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
          filePath = "src/view/NoteInfoView.m"
          timestampString = "366249380.972312"
          startingColumnNumber = "9223372036854775807"
@@ -27,19 +14,6 @@
          startingLineNumber = "67"
          endingLineNumber = "67"
          landmarkName = "-touchesBegan:withEvent:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "src/viewcontroller/ShitiViewController.m"
-         timestampString = "366246470.888504"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "513"
-         endingLineNumber = "513"
-         landmarkName = "-whenNoteInfoViewDismiss"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

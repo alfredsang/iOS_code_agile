@@ -14,6 +14,7 @@
 #import "ShitiAnswerTableViewControllerViewController.h"
 
 #import "NoteInfoView.h"
+#import "BottomBarView.h"
 
 
 @interface ShitiViewController : UIViewController <NoteInfoViewDelegate,UITableViewDataSource,UITableViewDelegate>{
@@ -35,8 +36,13 @@
     UITableView *_tableView;
     NSMutableArray *items;
     BOOL _isAnswered;
+    
+    BottomBarView *_bottomBarView;
+    
+    int c;
 }
 
+@property(nonatomic,retain,readwrite) IBOutlet UIImageView *ui_bgPic;
 /** 
  * 题号
  */
