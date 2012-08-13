@@ -14,7 +14,7 @@
 
 #import "CompletenessView.h"
 
-@interface ExamViewController : UIViewController {
+@interface ExamViewController : UIViewController <UITableViewDataSource,UITableViewDelegate>{
     /**
      * 当前id
      */
@@ -29,6 +29,9 @@
     NSMutableArray *_dsKeyArray;
 
     CompletenessView* hintView;
+    
+    UITableView *_tableView;
+    NSMutableArray *items;
 }
 
 /** 

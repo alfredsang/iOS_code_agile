@@ -642,6 +642,8 @@
 		A6271C9E15D4B7A900BA03B9 /* ExamViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6271C9D15D4B7A900BA03B9 /* ExamViewController.xib */; };
 		A6271CB015D4FB8600BA03B9 /* CompletenessView.m in Sources */ = {isa = PBXBuildFile; fileRef = A6271CAF15D4FB8600BA03B9 /* CompletenessView.m */; };
 		A6271E4D15D8AA0A00BA03B9 /* page_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = A6271E4C15D8AA0A00BA03B9 /* page_bg.png */; };
+		A6271E5215D8AE9100BA03B9 /* ShitiAnswerTableViewControllerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6271E5015D8AE9000BA03B9 /* ShitiAnswerTableViewControllerViewController.m */; };
+		A6271E5315D8AE9100BA03B9 /* ShitiAnswerTableViewControllerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6271E5115D8AE9100BA03B9 /* ShitiAnswerTableViewControllerViewController.xib */; };
 		A639A8AB15CBAA15007063E6 /* ui_bg_blue.png in Resources */ = {isa = PBXBuildFile; fileRef = A639A8AA15CBAA15007063E6 /* ui_bg_blue.png */; };
 		A639A8AE15CBB8A6007063E6 /* ui_summary_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = A639A8AD15CBB8A6007063E6 /* ui_summary_bg.png */; };
 		A639A8B015CBB99B007063E6 /* start.png in Resources */ = {isa = PBXBuildFile; fileRef = A639A8AF15CBB99B007063E6 /* start.png */; };
@@ -1712,6 +1714,9 @@
 		A6271CAE15D4FB8600BA03B9 /* CompletenessView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompletenessView.h; sourceTree = "<group>"; };
 		A6271CAF15D4FB8600BA03B9 /* CompletenessView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompletenessView.m; sourceTree = "<group>"; };
 		A6271E4C15D8AA0A00BA03B9 /* page_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = page_bg.png; sourceTree = "<group>"; };
+		A6271E4F15D8AE9000BA03B9 /* ShitiAnswerTableViewControllerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShitiAnswerTableViewControllerViewController.h; sourceTree = "<group>"; };
+		A6271E5015D8AE9000BA03B9 /* ShitiAnswerTableViewControllerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShitiAnswerTableViewControllerViewController.m; sourceTree = "<group>"; };
+		A6271E5115D8AE9100BA03B9 /* ShitiAnswerTableViewControllerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShitiAnswerTableViewControllerViewController.xib; sourceTree = "<group>"; };
 		A639A8AA15CBAA15007063E6 /* ui_bg_blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ui_bg_blue.png; sourceTree = "<group>"; };
 		A639A8AD15CBB8A6007063E6 /* ui_summary_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ui_summary_bg.png; sourceTree = "<group>"; };
 		A639A8AF15CBB99B007063E6 /* start.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = start.png; sourceTree = "<group>"; };
@@ -3293,6 +3298,9 @@
 				A653D04715CB817700FA6B25 /* SummaryViewController.m */,
 				A6271C9815D4B79200BA03B9 /* ExamViewController.h */,
 				A6271C9915D4B79200BA03B9 /* ExamViewController.m */,
+				A6271E4F15D8AE9000BA03B9 /* ShitiAnswerTableViewControllerViewController.h */,
+				A6271E5015D8AE9000BA03B9 /* ShitiAnswerTableViewControllerViewController.m */,
+				A6271E5115D8AE9100BA03B9 /* ShitiAnswerTableViewControllerViewController.xib */,
 			);
 			path = viewcontroller;
 			sourceTree = "<group>";
@@ -4696,6 +4704,7 @@
 				AAE0D61315D1D8F90046346F /* IMG_0679.PNG in Resources */,
 				A6271C9E15D4B7A900BA03B9 /* ExamViewController.xib in Resources */,
 				A6271E4D15D8AA0A00BA03B9 /* page_bg.png in Resources */,
+				A6271E5315D8AE9100BA03B9 /* ShitiAnswerTableViewControllerViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -4767,6 +4776,7 @@
 				AA20555315D46EC000575BF9 /* NoteInfoView.m in Sources */,
 				A6271C9B15D4B79200BA03B9 /* ExamViewController.m in Sources */,
 				A6271CB015D4FB8600BA03B9 /* CompletenessView.m in Sources */,
+				A6271E5215D8AE9100BA03B9 /* ShitiAnswerTableViewControllerViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

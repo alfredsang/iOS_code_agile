@@ -26,7 +26,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.view.frame = CGRectMake(0, 20, 320, 460);
+    self.view.frame = CGRectMake(0, 0, 320, 480);
+    
+    
+//    ShitiAnswerTableViewControllerViewController *s = [[ShitiAnswerTableViewControllerViewController alloc] initView:nil];
+//    [self.view addSubview:s.view];
     // Do any additional setup after loading the view from its nib.
 }
 

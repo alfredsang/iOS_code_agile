@@ -35,3 +35,7 @@ typedef enum {
 } MyPatternModel;
 
 
+
+#define isMultiSelect 1 //不支持
+//#define isMultiSelect 1;//支持
+

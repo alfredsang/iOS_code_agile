@@ -11,11 +11,12 @@
 #import "DM_Shiti.h"
 #import <QuartzCore/QuartzCore.h>
 #import <QuartzCore/QuartzCore.h>
+#import "ShitiAnswerTableViewControllerViewController.h"
 
 #import "NoteInfoView.h"
 
 
-@interface ShitiViewController : UIViewController <NoteInfoViewDelegate>{
+@interface ShitiViewController : UIViewController <NoteInfoViewDelegate,UITableViewDataSource,UITableViewDelegate>{
     /**
      * 当前id
      */
@@ -30,6 +31,10 @@
     NSMutableArray *_dsKeyArray;
     
     NoteInfoView* hintView;
+    
+    UITableView *_tableView;
+    NSMutableArray *items;
+    BOOL _isAnswered;
 }
 
 /** 

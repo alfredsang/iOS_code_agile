@@ -81,6 +81,21 @@
 
 - (void)viewDidLoad
 {
+    [super viewDidLoad];
+    // Do any additional setup after loading the view from its nib.
+    _isAnswered = FALSE;
+    
+    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(10, 150, 300, 245) style:UITableViewStyleGrouped];
+    _tableView.delegate = self;
+    _tableView.dataSource = self;
+    [_tableView setBackgroundColor:[UIColor clearColor]];
+    [self.view addSubview:_tableView];
+    [_tableView setScrollEnabled:NO];
+    
+    items = [[NSMutableArray alloc] init];
+
+    
+    
     ui_btn_tNumber.backgroundColor = [UIColor orangeColor];
     
     
@@ -96,10 +111,119 @@
     
     [self tNumberAnimation:1 andNumber:_currentTid];
     
-    [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+//    ShitiAnswerTableViewControllerViewController *s = [[ShitiAnswerTableViewControllerViewController alloc] initView:nil];
+//    s.view.frame = CGRectMake(10, 180, 300, 195);
+//    
+    
+    
+//    [self.view addSubview:s.view];
+    
 }
- 
+
+#pragma mark - Table view delegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    // Navigation logic may go here. Create and push another view controller.
+    /*
+     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
+     // ...
+     // Pass the selected object to the new view controller.
+     [self.navigationController pushViewController:detailViewController animated:YES];
+     [detailViewController release];
+     */
+  
+   
+    
+    if (!_isAnswered) {
+        for (int i = 0; i<[items count]; i++) {
+            NSIndexPath *myIndexP = [NSIndexPath indexPathForRow:i inSection:0];
+            UITableViewCell *cell = [tableView cellForRowAtIndexPath:myIndexP];
+            cell.accessoryType = UITableViewCellAccessoryNone;
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        }
+        int mid = [_shiti.tanswer intValue] ;
+        
+        UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+        if (mid == (indexPath.row+1) ) {
+          
+          
+    //        [cell setBackgroundColor:[UIColor greenColor]];
+            [cell.imageView setImage:[UIImage imageNamed:@"icon_selected"]];
+            [cell setHighlighted:YES animated:YES];
+        }else {
+    //        [cell setBackgroundColor:[UIColor grayColor]];
+            [cell.imageView setImage:[UIImage imageNamed:@"photo_icon_cancle"]];
+        }
+    }
+    
+    if (isMultiSelect == 0) {
+        _isAnswered = YES;
+    }
+     
+}
+
+
+#pragma mark - Table view data source
+
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
+    
+
+    return @"答案";
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    //#warning Potentially incomplete method implementation.
+    // Return the number of sections.
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    //#warning Incomplete method implementation.
+    // Return the number of rows in the section.
+    return [items count];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    _isAnswered = NO;
+    //    static NSString *CellIdentifier = @"BirdSightingCell";
+    //    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    //    cell.frame = CGRectMake(0, 0, 320, 40);
+    //    // Configure the cell...
+    //    
+    //    UIView *a = [UIView new];
+    //    a.frame = CGRectMake(0, 0, 320, 40);
+    //    [cell addSubview:a];
+    ////    [[cell textLabel] setText:@"sss"];
+    //    
+    //    return cell;
+    UITableViewCell *cell =[tableView dequeueReusableCellWithIdentifier:@"cell"];
+    if (cell==nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
+    }
+//    cell.accessoryType = UITableViewCellAccessoryCheckmark;
+//    [cell.accessoryView addSubview:[]]
+    
+    [cell.textLabel setFont:[UIFont systemFontOfSize:12]];
+    cell.textLabel.textColor  = [UIColor orangeColor];
+    cell.textLabel.numberOfLines = 3;
+    
+    [cell.imageView setImage:nil];
+    NSLog(@"row = %d",indexPath.row);
+     
+    if (items) {
+        cell.textLabel.text = [items  objectAtIndex:indexPath.row];
+        [cell.textLabel setBackgroundColor:[UIColor clearColor]];
+    }
+    cell.selectionStyle = UITableViewCellSelectionStyleBlue;
+    [cell setBackgroundColor:[UIColor clearColor]];
+    return cell;
+    
+}
 
 #pragma mark - swipe事件
 /**
@@ -327,8 +451,8 @@
     
     [layer setMasksToBounds:YES];  
     [layer setCornerRadius:(stringWidth)/2];  
-    [layer setBorderWidth:1];  
-    [layer setBorderColor: [[UIColor greenColor] CGColor]];  
+//    [layer setBorderWidth:1];  
+//    [layer setBorderColor: [[UIColor greenColor] CGColor]];  
     
     
     [self.ui_btn_tNumber setTitle:string  forState:UIControlStateNormal];
@@ -522,7 +646,7 @@
 
     }
     
-   
+ 
 
     [self setShiti:_shiti];
     NSLog(@"%@",_shiti.tName);
@@ -560,7 +684,31 @@
         [self.ui_tPicAddr setImage:[UIImage imageNamed:shiti.tPicAddress]];
     }
     
+    [items release];
     
+    items = [[NSMutableArray alloc] init];
+    
+    
+    if (_shiti.a1.length>0) {
+        [items addObject:_shiti.a1];
+    }
+    
+    if (_shiti.a2.length>0) {
+        [items addObject:_shiti.a2];
+    }
+    
+    if (_shiti.a3.length>0) {
+        [items addObject:_shiti.a3];
+    }
+    if (_shiti.a4.length>0) {
+        [items addObject:_shiti.a4];
+    }
+    if (_shiti.a5.length>0) {
+        [items addObject:_shiti.a5];
+    }
+    
+    
+    [_tableView reloadData];
 }
 
 #pragma mark - noteinfodelegate
