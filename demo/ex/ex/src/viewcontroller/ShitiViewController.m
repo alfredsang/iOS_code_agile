@@ -26,6 +26,8 @@
 @synthesize ui_tdesc;
 @synthesize ui_ttid;
 @synthesize ui_tzid;
+@synthesize ui_left,ui_right;
+@synthesize ui_config;
 
 @synthesize typeID;
 
@@ -118,7 +120,8 @@
     
 
 //    [self.view addSubview:s.view];
-    
+    [self.view bringSubviewToFront:self.ui_left];
+    [self.view bringSubviewToFront:self.ui_right];    
 }
 
 #pragma mark - Table view delegate
@@ -158,7 +161,13 @@
         }
     }
     
-    if (isMultiSelect == 0) {
+    
+
+    if (![[NSUserDefaults standardUserDefaults] integerForKey:USER_DEFAULT_ANSWER_MULTI_SHOW]) {
+        [[NSUserDefaults standardUserDefaults] setInteger:0 forKey:USER_DEFAULT_ANSWER_MULTI_SHOW];
+    } 
+     
+    if ([[NSUserDefaults standardUserDefaults] integerForKey:USER_DEFAULT_ANSWER_MULTI_SHOW] == 0){
         _isAnswered = YES;
     }
      
@@ -168,11 +177,11 @@
 #pragma mark - Table view data source
 
 
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
-    
-
-    return @"答案";
-}
+//- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
+//    
+//
+////    return @"答案";
+//}
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -350,7 +359,7 @@
         
         [self getShiti];
     }
-    
+    [self addAnimationWithDirection:0];
     [self tNumberAnimation:1 andNumber:_currentTid];
 }
 
@@ -359,9 +368,10 @@
     
     [self getShiti];
     
+    [self addAnimationWithDirection:1];
     [self tNumberAnimation:0 andNumber:_currentTid];
+    
 }
-
 
 - (void)resetAllAnswerBtn{
     [self resetWithBtn:self.ui_a1];
@@ -514,6 +524,14 @@
     [self showNoteView];    
 }
 
+-(IBAction)showSettingsView:(id)sender{
+    SettingsViewController *setView = [[SettingsViewController alloc] init];
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:setView];
+    navController.navigationBarHidden = YES;
+    [self presentModalViewController:navController animated:YES];
+    [navController release];
+}
+
 -(void)tNumberAnimation:(int)dirction andNumber:(int)num{
     CATransition *animation = [CATransition animation];
     animation.delegate = self;
@@ -598,15 +616,25 @@
 }
 
 #pragma mark Core Animation
-- (void)kDurationAnimation:(int)mytag direction:(int)dtag{
-    return;
-    NSInteger tag = mytag;
+#pragma mark Core Animation
+- (void)addAnimationWithDirection:(int)dtag{
     CATransition *animation = [CATransition animation];
     animation.delegate = self;
     animation.duration = kDuration;
     animation.timingFunction = UIViewAnimationCurveEaseInOut;
     
-    switch (tag) {
+    
+//    if (![[NSUserDefaults standardUserDefaults] integerForKey:USER_DEFAULT_FLIP_ANIMATION_TAG]) {
+//        [[NSUserDefaults standardUserDefaults] setInteger:0 forKey:USER_DEFAULT_FLIP_ANIMATION_TAG];
+//    } 
+//    
+    int aa = [[NSUserDefaults standardUserDefaults] integerForKey:USER_DEFAULT_FLIP_ANIMATION_TAG];
+    
+    if (aa == nil||aa==0) {
+        return;
+    }
+    
+    switch (aa) {
         case 101:
             animation.type = kCATransitionFade;
             break;
@@ -654,13 +682,14 @@
         case 1:
             animation.subtype = kCATransitionFromRight;
             break;
- 
+            
         default:
             break;
     }
- 
+    
     [[self.view layer] addAnimation:animation forKey:@"animation"];
 }
+
 
 #pragma mark UIView动画
 - (IBAction)buttonPressed2:(id)sender {
@@ -759,7 +788,7 @@
     NSLog(@"%@",_shiti.tName);
     NSLog(@"%@",_shiti.tanswer);
 }
-#define TI_Y      50
+#define TI_Y      28
 #define TI_HEIGHT 106
 - (void)setShiti:(DM_Shiti *)shiti{
     if (_currentTid == 0) {

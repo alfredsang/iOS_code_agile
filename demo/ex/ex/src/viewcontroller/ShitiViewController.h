@@ -12,7 +12,7 @@
 #import <QuartzCore/QuartzCore.h>
 #import <QuartzCore/QuartzCore.h>
 #import "ShitiAnswerTableViewControllerViewController.h"
-
+#import "SettingsViewController.h"
 #import "NoteInfoView.h"
 #import "BottomBarView.h"
 
@@ -59,6 +59,11 @@
 @property(nonatomic,retain,readwrite) IBOutlet UILabel *ui_tzid;
 @property(nonatomic,retain,readwrite) IBOutlet UILabel *ui_ttid;
 
+@property(nonatomic,retain,readwrite) IBOutlet UIButton *ui_left;
+@property(nonatomic,retain,readwrite) IBOutlet UIButton *ui_right;
+
+@property(nonatomic,retain,readwrite) IBOutlet UIButton *ui_config;
+
 @property(nonatomic,assign,readwrite)  int typeID;
 
 
@@ -77,5 +82,7 @@
  */
 -(IBAction)viewAnswerBtn:(UIButton *)sender;
  
+
+-(IBAction)showSettingsView:(id)sender;
 
 @end

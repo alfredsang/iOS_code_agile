@@ -103,5 +103,13 @@
     [navController release];
 }
 
+-(IBAction)showSettingsView:(id)sender{
+    SettingsViewController *setView = [[SettingsViewController alloc] init];
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:setView];
+    navController.navigationBarHidden = YES;
+    [self presentModalViewController:navController animated:YES];
+    [navController release];
+}
+
 
 @end

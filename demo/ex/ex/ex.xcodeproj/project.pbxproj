@@ -737,6 +737,8 @@
 		A6980B2F15CA2DF300DF5BFF /* DM_Shiti.m in Sources */ = {isa = PBXBuildFile; fileRef = A6980B2E15CA2DF300DF5BFF /* DM_Shiti.m */; };
 		A6980B3515CA315D00DF5BFF /* ShitiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6980B3315CA315D00DF5BFF /* ShitiViewController.m */; };
 		A6980B3A15CA31B800DF5BFF /* ShitiViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6980B3915CA31B800DF5BFF /* ShitiViewController.xib */; };
+		A6D664CA15DA301200601253 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6D664C815DA301200601253 /* SettingsViewController.m */; };
+		A6D664CB15DA301200601253 /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6D664C915DA301200601253 /* SettingsViewController.xib */; };
 		AA20555315D46EC000575BF9 /* NoteInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = AA20555215D46EC000575BF9 /* NoteInfoView.m */; };
 		AABA57CE15D9535300DF1AE0 /* articleView_bottom_bg1.png in Resources */ = {isa = PBXBuildFile; fileRef = AABA57CD15D9535300DF1AE0 /* articleView_bottom_bg1.png */; };
 		AABA57D415D954D400DF1AE0 /* BottomBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = AABA57D315D954D400DF1AE0 /* BottomBarView.m */; };
@@ -1866,6 +1868,9 @@
 		A6980B3215CA315D00DF5BFF /* ShitiViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShitiViewController.h; sourceTree = "<group>"; };
 		A6980B3315CA315D00DF5BFF /* ShitiViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShitiViewController.m; sourceTree = "<group>"; };
 		A6980B3915CA31B800DF5BFF /* ShitiViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShitiViewController.xib; sourceTree = "<group>"; };
+		A6D664C715DA301200601253 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		A6D664C815DA301200601253 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
+		A6D664C915DA301200601253 /* SettingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
 		AA20555115D46EC000575BF9 /* NoteInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoteInfoView.h; sourceTree = "<group>"; };
 		AA20555215D46EC000575BF9 /* NoteInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoteInfoView.m; sourceTree = "<group>"; };
 		AABA57CD15D9535300DF1AE0 /* articleView_bottom_bg1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = articleView_bottom_bg1.png; path = src/resource/image/no320/articleView_bottom_bg1.png; sourceTree = SOURCE_ROOT; };
@@ -3314,6 +3319,9 @@
 				A6271E4F15D8AE9000BA03B9 /* ShitiAnswerTableViewControllerViewController.h */,
 				A6271E5015D8AE9000BA03B9 /* ShitiAnswerTableViewControllerViewController.m */,
 				A6271E5115D8AE9100BA03B9 /* ShitiAnswerTableViewControllerViewController.xib */,
+				A6D664C715DA301200601253 /* SettingsViewController.h */,
+				A6D664C815DA301200601253 /* SettingsViewController.m */,
+				A6D664C915DA301200601253 /* SettingsViewController.xib */,
 			);
 			path = viewcontroller;
 			sourceTree = "<group>";
@@ -4719,6 +4727,7 @@
 				A6271E4D15D8AA0A00BA03B9 /* page_bg.png in Resources */,
 				A6271E5315D8AE9100BA03B9 /* ShitiAnswerTableViewControllerViewController.xib in Resources */,
 				AABA57CE15D9535300DF1AE0 /* articleView_bottom_bg1.png in Resources */,
+				A6D664CB15DA301200601253 /* SettingsViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -4793,6 +4802,7 @@
 				A6271E5215D8AE9100BA03B9 /* ShitiAnswerTableViewControllerViewController.m in Sources */,
 				AABA57D415D954D400DF1AE0 /* BottomBarView.m in Sources */,
 				AABA57D715D9637100DF1AE0 /* AnswerHistoryCache.m in Sources */,
+				A6D664CA15DA301200601253 /* SettingsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -4874,12 +4884,12 @@
 		A6980A4115CA214E00DF5BFF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer: Xiaowei Liang (RP3527U63K)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Changge Chen (53BM329KF8)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ex/ex-Prefix.pch";
 				INFOPLIST_FILE = "ex/ex-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "FA2DFEE8-6505-426B-A652-ECFEA2E716C1";
+				PROVISIONING_PROFILE = "ABC7E677-20A5-408F-BDCD-B849F64BC2FC";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;

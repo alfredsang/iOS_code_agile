@@ -284,7 +284,7 @@
         
         [self getShiti];
     }
-    
+    [self addAnimationWithDirection:0];
     [self tNumberAnimation:1 andNumber:_currentTid];
 }
 
@@ -292,7 +292,8 @@
     _currentTid++;
     
     [self getShiti];
-    
+
+    [self addAnimationWithDirection:1];
     [self tNumberAnimation:0 andNumber:_currentTid];
     
 }
@@ -509,15 +510,13 @@
 }
 
 #pragma mark Core Animation
-- (void)kDurationAnimation:(int)mytag direction:(int)dtag{
-    return;
-    NSInteger tag = mytag;
+- (void)addAnimationWithDirection:(int)dtag{
     CATransition *animation = [CATransition animation];
     animation.delegate = self;
     animation.duration = kDuration;
     animation.timingFunction = UIViewAnimationCurveEaseInOut;
     
-    switch (tag) {
+    switch (flip_animation_tag) {
         case 101:
             animation.type = kCATransitionFade;
             break;

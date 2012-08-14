@@ -10,6 +10,7 @@
 #import "ShitiViewController.h"
 #import "ExamViewController.h"
 #import "ShitiAnswerTableViewControllerViewController.h"
+#import "SettingsViewController.h"
 
 @interface RootViewController : UIViewController
 
@@ -27,6 +28,6 @@
 -(IBAction)showShitiView_random:(id)sender;
 -(IBAction)showShitiView_chapter:(id)sender;
 -(IBAction)showShitiView_exam:(id)sender;
-
+-(IBAction)showSettingsView:(id)sender;
 
 @end
