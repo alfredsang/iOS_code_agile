@@ -494,9 +494,11 @@
     }
 }
 
+
 -(IBAction)viewAnswerBtn:(UIButton *)btn{
     int mid = [_shiti.tanswer intValue];
 
+    
     for (int i=1; i<=5; i++) {
         UIButton* sender = (UIButton *)[self.view viewWithTag:i];
         
