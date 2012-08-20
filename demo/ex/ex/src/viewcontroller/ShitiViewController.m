@@ -569,7 +569,7 @@
         f.origin.y = 120;
         self.view.frame = f;
     } completion:^(BOOL finished) {
-        [self performSelector:@selector(dismissNoteView) withObject:nil afterDelay:10];
+        //[self performSelector:@selector(dismissNoteView) withObject:nil afterDelay:10];
     }];
     CGRect g =  self.ui_bgPic.frame;
     g.origin.y = -120;
