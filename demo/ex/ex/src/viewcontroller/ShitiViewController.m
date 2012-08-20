@@ -95,7 +95,7 @@
     [_tableView setScrollEnabled:NO];
     
     items = [[NSMutableArray alloc] init];
-
+    
     
     
     ui_btn_tNumber.backgroundColor = [UIColor orangeColor];
@@ -113,15 +113,15 @@
     
     [self tNumberAnimation:1 andNumber:_currentTid];
     
-//    ShitiAnswerTableViewControllerViewController *s = [[ShitiAnswerTableViewControllerViewController alloc] initView:nil];
-//    s.view.frame = CGRectMake(10, 180, 300, 195);
-//    
-     
+    //    ShitiAnswerTableViewControllerViewController *s = [[ShitiAnswerTableViewControllerViewController alloc] initView:nil];
+    //    s.view.frame = CGRectMake(10, 180, 300, 195);
+    //
     
-
-//    [self.view addSubview:s.view];
+    
+    
+    //    [self.view addSubview:s.view];
     [self.view bringSubviewToFront:self.ui_left];
-    [self.view bringSubviewToFront:self.ui_right];    
+    [self.view bringSubviewToFront:self.ui_right];
 }
 
 #pragma mark - Table view delegate
@@ -136,8 +136,8 @@
      [self.navigationController pushViewController:detailViewController animated:YES];
      [detailViewController release];
      */
-  
-   
+    
+    
     
     if (!_isAnswered) {
         for (int i = 0; i<[items count]; i++) {
@@ -150,27 +150,27 @@
         
         UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
         if (mid == (indexPath.row+1) ) {
-          
-          
-    //        [cell setBackgroundColor:[UIColor greenColor]];
+            
+            
+            //        [cell setBackgroundColor:[UIColor greenColor]];
             [cell.imageView setImage:[UIImage imageNamed:@"icon_selected"]];
             [cell setHighlighted:YES animated:YES];
         }else {
-    //        [cell setBackgroundColor:[UIColor grayColor]];
+            //        [cell setBackgroundColor:[UIColor grayColor]];
             [cell.imageView setImage:[UIImage imageNamed:@"photo_icon_cancle"]];
         }
     }
     
     
-
+    
     if (![[NSUserDefaults standardUserDefaults] integerForKey:USER_DEFAULT_ANSWER_MULTI_SHOW]) {
         [[NSUserDefaults standardUserDefaults] setInteger:0 forKey:USER_DEFAULT_ANSWER_MULTI_SHOW];
-    } 
-     
+    }
+    
     if ([[NSUserDefaults standardUserDefaults] integerForKey:USER_DEFAULT_ANSWER_MULTI_SHOW] == 0){
         _isAnswered = YES;
     }
-     
+    
 }
 
 
@@ -178,7 +178,7 @@
 
 
 //- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
-//    
+//
 //
 ////    return @"答案";
 //}
@@ -204,19 +204,19 @@
     //    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     //    cell.frame = CGRectMake(0, 0, 320, 40);
     //    // Configure the cell...
-    //    
+    //
     //    UIView *a = [UIView new];
     //    a.frame = CGRectMake(0, 0, 320, 40);
     //    [cell addSubview:a];
     ////    [[cell textLabel] setText:@"sss"];
-    //    
+    //
     //    return cell;
     UITableViewCell *cell =[tableView dequeueReusableCellWithIdentifier:@"cell"];
     if (cell==nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
     }
-//    cell.accessoryType = UITableViewCellAccessoryCheckmark;
-//    [cell.accessoryView addSubview:[]]
+    //    cell.accessoryType = UITableViewCellAccessoryCheckmark;
+    //    [cell.accessoryView addSubview:[]]
     
     [cell.textLabel setFont:[UIFont systemFontOfSize:12]];
     cell.textLabel.textColor  = [UIColor orangeColor];
@@ -224,7 +224,7 @@
     
     [cell.imageView setImage:nil];
     NSLog(@"row = %d",indexPath.row);
-     
+    
     if (items) {
         cell.textLabel.text = [items  objectAtIndex:indexPath.row];
         [cell.textLabel setBackgroundColor:[UIColor clearColor]];
@@ -240,29 +240,29 @@
  * 增加左右swipe事件
  */
 - (void)addGestureRecognizer{
-    UISwipeGestureRecognizer *recognizer;    
-    recognizer = [[UISwipeGestureRecognizer alloc] init];    
+    UISwipeGestureRecognizer *recognizer;
+    recognizer = [[UISwipeGestureRecognizer alloc] init];
     [recognizer addTarget:self action:@selector(handleSwipeFromLeft:)];
     [recognizer setDirection:UISwipeGestureRecognizerDirectionLeft];
-    [[self view] addGestureRecognizer:recognizer];    
+    [[self view] addGestureRecognizer:recognizer];
     [recognizer release];
     
-    recognizer = [[UISwipeGestureRecognizer alloc] init];    
+    recognizer = [[UISwipeGestureRecognizer alloc] init];
     [recognizer addTarget:self action:@selector(handleSwipeFromRight:)];
     [recognizer setDirection:UISwipeGestureRecognizerDirectionRight];
-    [[self view] addGestureRecognizer:recognizer];    
+    [[self view] addGestureRecognizer:recognizer];
     [recognizer release];
     
-    recognizer = [[UISwipeGestureRecognizer alloc] init];    
+    recognizer = [[UISwipeGestureRecognizer alloc] init];
     [recognizer addTarget:self action:@selector(handleSwipeFromUp:)];
     [recognizer setDirection:UISwipeGestureRecognizerDirectionUp];
-    [[self view] addGestureRecognizer:recognizer];    
+    [[self view] addGestureRecognizer:recognizer];
     [recognizer release];
     
     recognizer = [[UISwipeGestureRecognizer alloc] init];
     [recognizer addTarget:self action:@selector(handleSwipeFromDown:)];
     [recognizer setDirection:UISwipeGestureRecognizerDirectionDown];
-    [[self view] addGestureRecognizer:recognizer];    
+    [[self view] addGestureRecognizer:recognizer];
     [recognizer release];
     
     UITapGestureRecognizer *tg = [[UITapGestureRecognizer alloc] init];
@@ -285,7 +285,7 @@
             f.origin.y-=40;
             [self.view viewWithTag:10002].frame = f;
             
-           
+            
             f = [self.view viewWithTag:10003].frame;
             f.origin.y-=40;
             [self.view viewWithTag:10003].frame = f;
@@ -299,7 +299,7 @@
             [self.view viewWithTag:10005].frame = f;
             
         } completion:^(BOOL finished) {
-             
+            
         }];
         
     }else{
@@ -327,7 +327,7 @@
     }
     
 }
- 
+
 /**
  * 增加上swipe事件
  */
@@ -338,7 +338,7 @@
  * 增加下swipe事件
  */
 - (void)handleSwipeFromDown:(UISwipeGestureRecognizer *)recognize{
-     [self showNoteView];
+    [self showNoteView];
 }
 /**
  * 增加左swipe事件
@@ -432,23 +432,23 @@
         case 1:
             title = [NSString stringWithFormat:@"  A:%@",str];
             break;
-
+            
         case 2:
             title = [NSString stringWithFormat:@"  B:%@",str];
             break;
-
+            
         case 3:
             title = [NSString stringWithFormat:@"  C:%@",str];
             break;
-
+            
         case 4:
             title = [NSString stringWithFormat:@"  D:%@",str];
             break;
-
+            
         case 5:
             title = [NSString stringWithFormat:@"  E:%@",str];
             break;
-
+            
         default:
             break;
     }
@@ -480,7 +480,7 @@
     int mid = [_shiti.tanswer intValue];
     
     for (int i=1; i<=5; i++) {
-         if (sender.tag == mid) {
+        if (sender.tag == mid) {
             [sender setBackgroundColor:[UIColor greenColor]];
             sender.titleLabel.font = [UIFont systemFontOfSize:20];
             sender.titleLabel.textColor = [UIColor blueColor];
@@ -494,36 +494,26 @@
     }
 }
 
-
 -(IBAction)viewAnswerBtn:(UIButton *)btn{
-    int mid = [_shiti.tanswer intValue];
-
+    int mid = [_shiti.tanswer intValue]-1;
     
-    for (int i=1; i<=5; i++) {
-        UIButton* sender = (UIButton *)[self.view viewWithTag:i];
-        
-        if (sender.tag == mid) {
-            [sender setBackgroundColor:[UIColor greenColor]];
-            sender.titleLabel.font = [UIFont systemFontOfSize:20];
-            sender.titleLabel.textColor = [UIColor blueColor];
-            [sender setContentHorizontalAlignment:UIControlContentHorizontalAlignmentCenter];
-        }else {
-            [sender setBackgroundColor:[UIColor grayColor]];
-            [sender setEnabled:NO];
-            [sender setOpaque:YES];
-            [sender setAlpha:0.5f];
-        }
-    }
+    NSIndexPath *myIndexP = [NSIndexPath indexPathForRow:mid inSection:0];
+    UITableViewCell *cell = [_tableView cellForRowAtIndexPath:myIndexP];
+    [cell.imageView setImage:[UIImage imageNamed:@"icon_selected"]];
+    [cell setHighlighted:YES animated:YES];
+    
+    
     NSString *tip = [NSString stringWithFormat:@"%@",_shiti.tdesc];
     
     if ( (tip == nil) | [tip isEqualToString:@""]) {
         return;
     }
-   
+    
     [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(dismissNoteView) object:nil];
     [hintView setNoteInfo:@"真题解读" content:tip iconName:@"weibo_location_selected"];
-      
-    [self showNoteView];    
+    
+    _isAnswered = YES;
+    [self showNoteView];
 }
 
 -(IBAction)showSettingsView:(id)sender{
@@ -540,7 +530,7 @@
     animation.duration = kDuration;
     animation.timingFunction = UIViewAnimationCurveEaseInOut;
     animation.type = @"oglFlip";
-     
+    
     if (dirction ==1) {
         animation.subtype = kCATransitionFromLeft;
     }else {
@@ -551,28 +541,28 @@
     
 	CGFloat stringWidth = [string sizeWithFont:self.ui_btn_tNumber.titleLabel.font].width+14;
 	
- 
-//	self.ui_btn_tNumber.bounds = CGRectMake(0, 0, hudWidth, 100);
-        
+    
+    //	self.ui_btn_tNumber.bounds = CGRectMake(0, 0, hudWidth, 100);
+    
     CGRect f = self.ui_btn_tNumber.frame;
     f.size.width = stringWidth;
     f.size.height = stringWidth;
     self.ui_btn_tNumber.frame = f;
     
     
-    CALayer * layer = [ui_btn_tNumber layer];  
+    CALayer * layer = [ui_btn_tNumber layer];
     
-    [layer setMasksToBounds:YES];  
-    [layer setCornerRadius:(stringWidth)/2];  
-//    [layer setBorderWidth:1];  
-//    [layer setBorderColor: [[UIColor greenColor] CGColor]];  
+    [layer setMasksToBounds:YES];
+    [layer setCornerRadius:(stringWidth)/2];
+    //    [layer setBorderWidth:1];
+    //    [layer setBorderColor: [[UIColor greenColor] CGColor]];
     
     
     [self.ui_btn_tNumber setTitle:string  forState:UIControlStateNormal];
-
+    
     [[self.ui_btn_tNumber layer] addAnimation:animation forKey:@"animation_btn"];
 }
-#pragma mark - about NoteView 
+#pragma mark - about NoteView
 - (void)showNoteView{
     [UIView animateWithDuration:1 delay:0.2 options:UIViewAnimationOptionCurveEaseOut animations:^{
         CGRect f = self.view.frame;
@@ -581,7 +571,7 @@
     } completion:^(BOOL finished) {
         [self performSelector:@selector(dismissNoteView) withObject:nil afterDelay:10];
     }];
-   CGRect g =  self.ui_bgPic.frame;
+    CGRect g =  self.ui_bgPic.frame;
     g.origin.y = -120;
     g.size.height=480.0f+120.0f;
     self.ui_bgPic.frame = g;
@@ -605,10 +595,10 @@
         self.view.frame = f;
     }];
     
-  
+    
 }
 
- 
+
 #pragma mark - public methods implemetions
 
 -(void)jumpTo:(NSNumber *)tPageNumber{
@@ -626,10 +616,10 @@
     animation.timingFunction = UIViewAnimationCurveEaseInOut;
     
     
-//    if (![[NSUserDefaults standardUserDefaults] integerForKey:USER_DEFAULT_FLIP_ANIMATION_TAG]) {
-//        [[NSUserDefaults standardUserDefaults] setInteger:0 forKey:USER_DEFAULT_FLIP_ANIMATION_TAG];
-//    } 
-//    
+    //    if (![[NSUserDefaults standardUserDefaults] integerForKey:USER_DEFAULT_FLIP_ANIMATION_TAG]) {
+    //        [[NSUserDefaults standardUserDefaults] setInteger:0 forKey:USER_DEFAULT_FLIP_ANIMATION_TAG];
+    //    }
+    //
     int aa = [[NSUserDefaults standardUserDefaults] integerForKey:USER_DEFAULT_FLIP_ANIMATION_TAG];
     
     if (aa == nil||aa==0) {
@@ -719,10 +709,10 @@
             break;
     }
     
-//    NSUInteger green = [[self.view subviews] indexOfObject:self.greenView];
-//    NSUInteger blue = [[self.view subviews] indexOfObject:self.blueView];
-//    [self.view exchangeSubviewAtIndex:green withSubviewAtIndex:blue];
-//    
+    //    NSUInteger green = [[self.view subviews] indexOfObject:self.greenView];
+    //    NSUInteger blue = [[self.view subviews] indexOfObject:self.blueView];
+    //    [self.view exchangeSubviewAtIndex:green withSubviewAtIndex:blue];
+    //
     [UIView setAnimationDelegate:self];
     // 动画完毕后调用某个方法
     //[UIView setAnimationDidStopSelector:@selector(animationFinished:)];
@@ -748,7 +738,7 @@
 }
 
 /**
- *随机一百道题 
+ *随机一百道题
  *时间45分钟
  *90分+通过
  *一个题目一分
@@ -777,15 +767,15 @@
     if ( (tip == nil) | [tip isEqualToString:@""]) {
         
     }else {
-
+        
         [hintView setNoteInfo:@"真题解读" content:tip iconName:@"weibo_location_selected"];
         
         
-
+        
     }
     
- 
-
+    
+    
     [self setShiti:_shiti];
     NSLog(@"%@",_shiti.tName);
     NSLog(@"%@",_shiti.tanswer);
@@ -795,7 +785,7 @@
 - (void)setShiti:(DM_Shiti *)shiti{
     if (_currentTid == 0) {
         SummaryViewController *s = [SummaryViewController new];
-        [self.view addSubview:s.view];        
+        [self.view addSubview:s.view];
         //[s release];
         return;
     }
@@ -810,14 +800,14 @@
     //    self.ui_chapter.text = shiti.chapter;
     self.ui_tName.text = shiti.tName;
     self.ui_tdesc.text = shiti.tdesc;
-    self.ui_ttid.text = shiti.tid; 
+    self.ui_ttid.text = shiti.tid;
     
     //    [self.ui_tName ]
     if (shiti.tPicAddress == nil || [shiti.tPicAddress  isEqualToString:@"" ]) {
         self.ui_tPicAddr.hidden = YES;
-        self.ui_tName.frame = CGRectMake(10, TI_Y, 300,TI_HEIGHT); 
+        self.ui_tName.frame = CGRectMake(10, TI_Y, 300,TI_HEIGHT);
     }else {
-        self.ui_tName.frame = CGRectMake(10, TI_Y, 200, TI_HEIGHT); 
+        self.ui_tName.frame = CGRectMake(10, TI_Y, 200, TI_HEIGHT);
         self.ui_tPicAddr.hidden = NO;
         [self.ui_tPicAddr setImage:[UIImage imageNamed:shiti.tPicAddress]];
     }
