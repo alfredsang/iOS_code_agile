@@ -34,6 +34,7 @@
 - (id)initWithPattern:(MyPatternModel)myPattern{
     if (self == [super init]) {
         _myPattern = myPattern;
+        _myViewMode = view_model_question;
         [self processWithPattern];
     }
     return self;
@@ -176,16 +177,8 @@
 
 #pragma mark - Table view data source
 
-
-//- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
-//
-//
-////    return @"答案";
-//}
-
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    //#warning Potentially incomplete method implementation.
     // Return the number of sections.
     return 1;
 }
@@ -273,10 +266,11 @@
     [tg release];
     
 }
+
 -(void)tap:(UITapGestureRecognizer *)g{
     c++;
     if (c%2 ==0) {
-        [UIView animateWithDuration:1 delay:0.2 options:UIViewAnimationCurveEaseInOut animations:^{
+        [UIView animateWithDuration:0.4 delay:0.2 options:UIViewAnimationCurveEaseInOut animations:^{
             CGRect f = [self.view viewWithTag:10001].frame;
             f.origin.y-=40;
             [self.view viewWithTag:10001].frame = f;
@@ -372,23 +366,6 @@
     [self tNumberAnimation:0 andNumber:_currentTid];
     
 }
-
-- (void)resetAllAnswerBtn{
-    [self resetWithBtn:self.ui_a1];
-    [self resetWithBtn:self.ui_a2];
-    [self resetWithBtn:self.ui_a3];
-    [self resetWithBtn:self.ui_a4];
-    [self resetWithBtn:self.ui_a5];
-}
-- (void)resetWithBtn:(UIButton *)sender{
-    [sender setBackgroundColor:[UIColor whiteColor]];
-    [sender setEnabled:YES];
-    [sender setOpaque:YES];
-    [sender setAlpha:1.0f];
-    [sender setContentHorizontalAlignment:UIControlContentHorizontalAlignmentLeft];
-    [sender.titleLabel setFont:[UIFont systemFontOfSize:15]];
-}
-
 
 - (NSString *)getStringWithABCD:(NSString *)str withIndex:(int)i{
     NSString *title;
@@ -497,7 +474,17 @@
 -(IBAction)viewAnswerBtn:(UIButton *)btn{
     int mid = [_shiti.tanswer intValue]-1;
     
-    NSIndexPath *myIndexP = [NSIndexPath indexPathForRow:mid inSection:0];
+    [self setAnswerStatus:mid];
+    
+    _isAnswered = YES;
+    [self showNoteView];
+}
+
+/**
+ * 根据答案-设置表格-状态
+ */
+-(void)setAnswerStatus:(int)tanserValue{
+    NSIndexPath *myIndexP = [NSIndexPath indexPathForRow:tanserValue inSection:0];
     UITableViewCell *cell = [_tableView cellForRowAtIndexPath:myIndexP];
     [cell.imageView setImage:[UIImage imageNamed:@"icon_selected"]];
     [cell setHighlighted:YES animated:YES];
@@ -512,8 +499,7 @@
     [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(dismissNoteView) object:nil];
     [hintView setNoteInfo:@"真题解读" content:tip iconName:@"weibo_location_selected"];
     
-    _isAnswered = YES;
-    [self showNoteView];
+
 }
 
 -(IBAction)showSettingsView:(id)sender{
@@ -531,7 +517,7 @@
     animation.timingFunction = UIViewAnimationCurveEaseInOut;
     animation.type = @"oglFlip";
     
-    if (dirction ==1) {
+    if (dirction ==0) {
         animation.subtype = kCATransitionFromLeft;
     }else {
         animation.subtype = kCATransitionFromRight;
@@ -564,6 +550,9 @@
 }
 #pragma mark - about NoteView
 - (void)showNoteView{
+    //如果下拉，答题模式为看答案模式
+    _myViewMode = view_model_answer;
+    
     [UIView animateWithDuration:1 delay:0.2 options:UIViewAnimationOptionCurveEaseOut animations:^{
         CGRect f = self.view.frame;
         f.origin.y = 120;
@@ -584,6 +573,9 @@
 
 
 - (void)dismissNoteView{
+    //如果下拉，答题模式为问题模式
+    _myViewMode = view_model_question;
+    
     [UIView animateWithDuration:1 delay:0.2 options:UIViewAnimationOptionAutoreverse animations:^{
         CGRect g =  self.ui_bgPic.frame;
         g.origin.y = 0;
@@ -779,6 +771,10 @@
     [self setShiti:_shiti];
     NSLog(@"%@",_shiti.tName);
     NSLog(@"%@",_shiti.tanswer);
+    
+    if (_myViewMode == view_model_answer) {
+        [self setAnswerStatus:_shiti.tanswer.intValue-1];
+    }
 }
 #define TI_Y      28
 #define TI_HEIGHT 106
@@ -789,12 +785,7 @@
         //[s release];
         return;
     }
-    [self resetAllAnswerBtn];
-    [self hideOrShow:shiti.a1 withBtn:self.ui_a1];
-    [self hideOrShow:shiti.a2 withBtn:self.ui_a2];
-    [self hideOrShow:shiti.a3 withBtn:self.ui_a3];
-    [self hideOrShow:shiti.a4 withBtn:self.ui_a4];
-    [self hideOrShow:shiti.a5 withBtn:self.ui_a5];
+   
     
     //
     //    self.ui_chapter.text = shiti.chapter;

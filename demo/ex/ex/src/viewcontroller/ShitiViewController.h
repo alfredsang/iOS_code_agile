@@ -16,6 +16,11 @@
 #import "NoteInfoView.h"
 #import "BottomBarView.h"
 
+//我的收藏
+typedef enum {
+    view_model_answer = 1,//答案模式
+    view_model_question = 0,//问题模式
+} ViewModel;
 
 @interface ShitiViewController : UIViewController <NoteInfoViewDelegate,UITableViewDataSource,UITableViewDelegate>{
     /**
@@ -24,6 +29,11 @@
     int _currentTid;
     DM_Shiti *_shiti;
     MyPatternModel _myPattern;
+    /**
+     * 当前模式
+     * default value = view_model_question
+     */
+    ViewModel _myViewMode;
     /**
      * 当前数据源的id
      */

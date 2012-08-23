@@ -251,7 +251,29 @@
     }
     return nil;
 }
-
+//select count(0) from tb_shiti
+- (int)shiti_count_number{
+    FMResultSet *_rs = [db executeQuery:@"select count(0) as tid from tb_shiti"];
+    int c = 0;
+    if (_rs) {
+        while ([_rs next]) {
+            
+            //- id          自增id
+            //- tid         章节-带点
+            //- zid         章节-数值
+            //- tName       试题内容
+            //- tPicAddress 图片地址
+            //- a1          试题选项
+            //- a2          试题选项
+            //- a3          试题选项
+            //- a4          试题选项
+            //- tanswer     答案
+            //- tdesc       答案解释或提示
+            c = [_rs intForColumn:@"tid"];
+        }
+    }
+    return c;
+}
 
 - (NSMutableArray *)shiti_find_all_random{
     FMResultSet *_rs = [db executeQuery:@"select id,tid,zid,tName,tPicAddress,a1, a2, a3 , a4 , a5 , tanswer, tdesc from tb_shiti order by random(id)"];

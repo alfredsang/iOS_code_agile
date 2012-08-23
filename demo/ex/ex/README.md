@@ -117,6 +117,13 @@ typedef enum {
 收集错题号--server
 
                    
+                   
+                   
+- 完成试题总数 
+
+从NSUserDefault中取SHITI_COUNT_NUMBER
+
+
                                 
                                              
                                                           

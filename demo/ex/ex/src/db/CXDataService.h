@@ -31,6 +31,11 @@
 - (DM_Shiti *)shiti_find_by_id:(int)tid;
 
 /**
+ * 获取所有试题数目
+ */
+- (int)shiti_count_number;
+
+/**
  * 随机查处所有试题
  */
 - (NSMutableArray *)shiti_find_all_random;

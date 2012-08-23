@@ -25,6 +25,11 @@
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     
+    int ti_count_number = [[CXDataService sharedInstance]  shiti_count_number] ;
+    
+    [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithInt:ti_count_number] forKey:SHITI_COUNT_NUMBER];
+    NSLog(@"ti_count_number = %d",ti_count_number);
+    
     RootViewController *rootVC = [[RootViewController alloc] init];
 //    rootVC.view.frame = self.window.frame;
     [self.window addSubview:rootVC.view];

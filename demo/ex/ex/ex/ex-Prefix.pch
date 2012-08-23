@@ -22,6 +22,8 @@
 #define ImageNamed(_pointer,_type) [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:_pointer ofType:_type] ]
 
 
+#define SHITI_COUNT_NUMBER @"SHITI_COUNT_NUMBER"
+
 
 #define kDuration 0.7   // 动画持续时间(秒)
 

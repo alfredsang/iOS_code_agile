@@ -28,10 +28,19 @@
     [super viewDidLoad];
     self.view.frame = CGRectMake(0, 0, 320, 480);
     
+//    UIButton *kBtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+//    kBtn.frame = CGRectMake(20, 100, 180, 44);
+//    [kBtn setTitle:@"kangjia test" forState:UIControlStateNormal];
+//    [kBtn addTarget:self action:@selector(kjClick:) forControlEvents:UIControlEventTouchUpInside];
+//    [self.view addSubview:kBtn];
     
 //    ShitiAnswerTableViewControllerViewController *s = [[ShitiAnswerTableViewControllerViewController alloc] initView:nil];
 //    [self.view addSubview:s.view];
     // Do any additional setup after loading the view from its nib.
+}
+
+-(void)kjClick:(UIButton *)btn{
+    NSLog(@"-----------");
 }
 
 - (void)viewDidUnload
