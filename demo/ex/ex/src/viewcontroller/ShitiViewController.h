@@ -15,6 +15,7 @@
 #import "SettingsViewController.h"
 #import "NoteInfoView.h"
 #import "BottomBarView.h"
+#import "AnswerHistoryCache.h"
 
 //我的收藏
 typedef enum {
@@ -23,6 +24,8 @@ typedef enum {
 } ViewModel;
 
 @interface ShitiViewController : UIViewController <NoteInfoViewDelegate,UITableViewDataSource,UITableViewDelegate>{
+    
+    AnswerHistoryCache *_history;
     /**
      * 当前id
      */

@@ -35,6 +35,8 @@
     if (self == [super init]) {
         _myPattern = myPattern;
         _myViewMode = view_model_question;
+        
+        _history = [[AnswerHistoryCache alloc] init];
         [self processWithPattern];
     }
     return self;
@@ -160,6 +162,9 @@
             //        [cell setBackgroundColor:[UIColor grayColor]];
             [cell.imageView setImage:[UIImage imageNamed:@"photo_icon_cancle"]];
         }
+        
+        
+        [_history add:[NSString stringWithFormat:@"%d",_currentTid] andAnswer:[NSString stringWithFormat:@"%@-%d",_shiti.tanswer,(indexPath.row+1)]];
     }
     
     
@@ -456,7 +461,7 @@
 -(IBAction)whenClickAnswerBtn:(UIButton *)sender{
     int mid = [_shiti.tanswer intValue];
     
-    for (int i=1; i<=5; i++) {
+    for (int i=1; i<=5; i++){
         if (sender.tag == mid) {
             [sender setBackgroundColor:[UIColor greenColor]];
             sender.titleLabel.font = [UIFont systemFontOfSize:20];
@@ -469,6 +474,8 @@
             [sender setAlpha:0.5f];
         }
     }
+    
+    
 }
 
 -(IBAction)viewAnswerBtn:(UIButton *)btn{
@@ -715,11 +722,14 @@
 #pragma mark - pattern callback methods implemetions
 
 - (void)p_seq{
+    _history.max = [[[NSUserDefaults standardUserDefaults] objectForKey:@"SHITI_COUNT_NUMBER"] intValue];
     _currentTid = 1;
     //_dsId = _currentTid;
 }
 
 - (void)p_random{
+    
+    _history.max = [[[NSUserDefaults standardUserDefaults] objectForKey:@"SHITI_COUNT_NUMBER"] intValue];
     _dsKeyArray = [[RandomUtils getRandomCollection:0 to:1000 count:1000] retain];
     NSLog(@"when in p_random functoin,_dsKeyArray = %@C",_dsKeyArray);
     //_dsId = [[_dsKeyArray objectAtIndex:_currentTid] intValue];
