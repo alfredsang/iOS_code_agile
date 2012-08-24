@@ -740,6 +740,7 @@
 		A6D664CA15DA301200601253 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6D664C815DA301200601253 /* SettingsViewController.m */; };
 		A6D664CB15DA301200601253 /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6D664C915DA301200601253 /* SettingsViewController.xib */; };
 		AA20555315D46EC000575BF9 /* NoteInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = AA20555215D46EC000575BF9 /* NoteInfoView.m */; };
+		AA41422315E7CC44007532EB /* DM_Shoucang.m in Sources */ = {isa = PBXBuildFile; fileRef = AA41422215E7CC44007532EB /* DM_Shoucang.m */; };
 		AABA57CE15D9535300DF1AE0 /* articleView_bottom_bg1.png in Resources */ = {isa = PBXBuildFile; fileRef = AABA57CD15D9535300DF1AE0 /* articleView_bottom_bg1.png */; };
 		AABA57D415D954D400DF1AE0 /* BottomBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = AABA57D315D954D400DF1AE0 /* BottomBarView.m */; };
 		AABA57D715D9637100DF1AE0 /* AnswerHistoryCache.m in Sources */ = {isa = PBXBuildFile; fileRef = AABA57D615D9637100DF1AE0 /* AnswerHistoryCache.m */; };
@@ -1873,6 +1874,8 @@
 		A6D664C915DA301200601253 /* SettingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
 		AA20555115D46EC000575BF9 /* NoteInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoteInfoView.h; sourceTree = "<group>"; };
 		AA20555215D46EC000575BF9 /* NoteInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoteInfoView.m; sourceTree = "<group>"; };
+		AA41422115E7CC44007532EB /* DM_Shoucang.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DM_Shoucang.h; sourceTree = "<group>"; };
+		AA41422215E7CC44007532EB /* DM_Shoucang.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DM_Shoucang.m; sourceTree = "<group>"; };
 		AABA57CD15D9535300DF1AE0 /* articleView_bottom_bg1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = articleView_bottom_bg1.png; path = src/resource/image/no320/articleView_bottom_bg1.png; sourceTree = SOURCE_ROOT; };
 		AABA57D215D954D400DF1AE0 /* BottomBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BottomBarView.h; sourceTree = "<group>"; };
 		AABA57D315D954D400DF1AE0 /* BottomBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BottomBarView.m; sourceTree = "<group>"; };
@@ -3274,6 +3277,8 @@
 				A6980B0E15CA260100DF5BFF /* DM_Scanning.m */,
 				A6980B2D15CA2DF300DF5BFF /* DM_Shiti.h */,
 				A6980B2E15CA2DF300DF5BFF /* DM_Shiti.m */,
+				AA41422115E7CC44007532EB /* DM_Shoucang.h */,
+				AA41422215E7CC44007532EB /* DM_Shoucang.m */,
 			);
 			path = datamodel;
 			sourceTree = "<group>";
@@ -4803,6 +4808,7 @@
 				AABA57D415D954D400DF1AE0 /* BottomBarView.m in Sources */,
 				AABA57D715D9637100DF1AE0 /* AnswerHistoryCache.m in Sources */,
 				A6D664CA15DA301200601253 /* SettingsViewController.m in Sources */,
+				AA41422315E7CC44007532EB /* DM_Shoucang.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

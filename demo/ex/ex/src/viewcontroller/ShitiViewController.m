@@ -458,26 +458,9 @@
     [self dismissModalViewControllerAnimated:YES];
 }
 
--(IBAction)whenClickAnswerBtn:(UIButton *)sender{
-    int mid = [_shiti.tanswer intValue];
-    
-    for (int i=1; i<=5; i++){
-        if (sender.tag == mid) {
-            [sender setBackgroundColor:[UIColor greenColor]];
-            sender.titleLabel.font = [UIFont systemFontOfSize:20];
-            sender.titleLabel.textColor = [UIColor blueColor];
-            [sender setContentHorizontalAlignment:UIControlContentHorizontalAlignmentCenter];
-        }else {
-            [sender setBackgroundColor:[UIColor grayColor]];
-            [sender setEnabled:NO];
-            [sender setOpaque:YES];
-            [sender setAlpha:0.5f];
-        }
-    }
-    
-    
+-(IBAction)whenClickShoucangBtn:(UIButton *)sender{
+    [[CXDataService sharedInstance]  shoucang_add:_currentTid andTid:[_shiti.tid intValue] andTName:_shiti.tName];
 }
-
 -(IBAction)viewAnswerBtn:(UIButton *)btn{
     int mid = [_shiti.tanswer intValue]-1;
     

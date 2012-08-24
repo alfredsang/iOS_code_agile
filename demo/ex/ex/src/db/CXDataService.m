@@ -366,4 +366,38 @@
 }
 
 
+#pragma mark - 收藏 methods Implemtions
+- (void)shoucang_add:(int)tNumber andTid:(int)tid andTName:(NSString *)tName{
+    NSLog(@"INFO 收藏 %d:%@",tNumber,tName);
+    [db executeUpdate:@"INSERT INTO tb_shoucang(tid,tnum,tname) VALUES (?,?,?)", tid,tNumber,tName];
+}
+
+/**
+ * 查处所有收藏
+ */
+- (NSMutableArray *)shoucang_find_all{
+    FMResultSet *_rs = [db executeQuery:@"select distinct tnum,tname,date(create_time) as ct from tb_shoucang"];
+    NSMutableArray *ret_array =  [[NSMutableArray alloc] init];
+    
+    if (_rs) {
+        while ([_rs next]) {
+            NSLog(@"--%@",[_rs stringForColumn:@"tName"]  );
+            int tnumber = [_rs intForColumn:@"tnum"];
+            NSString *tname = [_rs stringForColumn:@"tname"];
+            NSString *ct = [_rs stringForColumn:@"ct"];
+    
+            DM_Shoucang *shoucang = [[DM_Shoucang alloc] initWithId:tnumber tname:tname ct:ct];
+            [ret_array addObject:shoucang];
+            [shoucang release];
+        }
+        return [ret_array autorelease];
+        
+    }else {
+        [ret_array release];
+        ret_array = nil;
+        return nil;
+    }
+
+}
+
 @end

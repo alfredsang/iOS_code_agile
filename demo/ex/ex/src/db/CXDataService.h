@@ -12,6 +12,7 @@
 
 #import "DM_Scanning.h"
 #import "DM_Shiti.h"
+#import "DM_Shoucang.h"
 
 @interface CXDataService : NSObject{
     FMDatabase *db;
@@ -27,6 +28,7 @@
 - (void)scanning_add:(DM_Scanning *)s;
 
 
+#pragma mark - shiti
 
 - (DM_Shiti *)shiti_find_by_id:(int)tid;
 
@@ -45,5 +47,17 @@
  */
 - (NSMutableArray *)shiti_find_all_key_random;
 
+#pragma mark - shoucang
+
+/**
+ * tNumber = 题号
+ * tName   = 试题说明
+ */
+- (void)shoucang_add:(int)tNumber andTid:(int)tid andTName:(NSString *)tName;
+
+/**
+ * 查处所有收藏
+ */
+- (NSMutableArray *)shoucang_find_all;
 
 @end

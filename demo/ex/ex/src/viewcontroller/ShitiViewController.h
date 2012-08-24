@@ -89,7 +89,10 @@ typedef enum {
 -(IBAction)left:(id)sender;
 -(IBAction)right:(id)sender;
 
--(IBAction)whenClickAnswerBtn:(UIButton *)sender;
+/**
+ * 当点击收藏按钮时，触发的事件
+ */
+-(IBAction)whenClickShoucangBtn:(UIButton *)sender;
 /**
  * 查看答案
  */
